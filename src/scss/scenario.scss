@@ -1,0 +1,86 @@
+.scenario {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../assets/img/scenario-back.png");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+
+  .guitar {
+    position: absolute;
+    top: 20%;
+    right: 100px;
+  }
+
+  .chair {
+    position: absolute;
+    top: 25%;
+    left: 380px;
+  }
+
+  .window {
+    position: absolute;
+    top: 30px;
+    right: 100px;
+  }
+
+  .door {
+    position: absolute;
+    top: 50px;
+    left: 100px;
+  }
+
+  .lamp {
+    position: absolute;
+    top: 180px;
+    left: 500px;
+  }
+
+  .plant {
+    position: absolute;
+    bottom: 260px;
+    left: 0px;
+  }
+
+  .character {
+    position: absolute;
+    bottom: 350px;
+    right: 300px;
+  }
+
+  .speech-cloud {
+    width: 250px;
+    min-height: 50px;
+    background-image: url("../assets/img/speech-cloud-back.png");
+    background-position: center;
+    background-size: 100% auto;
+    font-family: "Orbitron", sans-serif;
+    color: black;
+    padding: 7px 30px;
+    font-weight: 500;
+    text-align: center;
+    font-size: 1.2em;
+    position: absolute;
+    top: 200px;
+    right: 400px;
+    &::after,
+    &:before {
+      content: "";
+      height: 60px;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      background-size: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    &:before {
+      top: -50px;
+      background-image: url("../assets/img/speech-cloud-before.png");
+    }
+    &:after {
+      bottom: -60px;
+      background-image: url("../assets/img/speech-cloud-after.png");
+    }
+  }
+}

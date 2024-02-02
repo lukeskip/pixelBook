@@ -1,4 +1,5 @@
 import TypeIt from "typeit-react";
+import typeItDefault from "../configurations/typeit-default.js";
 const Console = () => {
   const finish = (instance) => {
     instance.options({
@@ -10,7 +11,9 @@ const Console = () => {
   };
   return (
     <div className="container console">
-      <TypeIt getAfterInit={finish}>[~] Este es uuna cosa muy chida</TypeIt>
+      <TypeIt options={typeItDefault} getAfterInit={finish}>
+        [~] Este es una cosa muy chida
+      </TypeIt>
     </div>
   );
 };
