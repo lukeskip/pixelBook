@@ -44,8 +44,29 @@
 
   .character {
     position: absolute;
-    bottom: 350px;
+    bottom: 450px;
     right: 300px;
+    width: 200px;
+    height: 300px;
+
+    .body {
+      position: absolute;
+      bottom: 0;
+      left: 30px;
+    }
+
+    .head {
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: bounce 2s ease 0s infinite normal forwards;
+      .eyes {
+        position: absolute;
+        top: 95px;
+        left: 55px;
+        animation: bounceEyes 3s ease 0s infinite normal forwards;
+      }
+    }
   }
 
   .speech-cloud {
@@ -63,6 +84,7 @@
     position: absolute;
     top: 200px;
     right: 400px;
+    animation: cloud 3s ease 0s infinite normal forwards;
     &::after,
     &:before {
       content: "";

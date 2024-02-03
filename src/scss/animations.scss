@@ -1,0 +1,66 @@
+@keyframes bounce {
+  0% {
+    animation-timing-function: ease-in;
+    opacity: 1;
+    transform: translateY(6px);
+  }
+
+  70% {
+    animation-timing-function: ease-in;
+    transform: translateY(12px);
+  }
+
+  100% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    transform: translateY(6px);
+  }
+}
+
+@keyframes bounceEyes {
+  0% {
+    animation-timing-function: ease-in;
+    opacity: 1;
+    transform: translateX(3px);
+  }
+
+  10% {
+    animation-timing-function: ease-in;
+    transform: translateX(0px);
+  }
+
+  20% {
+    animation-timing-function: ease-in;
+    transform: translateX(3px);
+  }
+
+  21% {
+    animation-timing-function: ease-in;
+    transform: translateX(6px);
+  }
+
+  100% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    transform: translateX(6px);
+  }
+}
+
+@keyframes cloud {
+  0% {
+    animation-timing-function: ease-in;
+    opacity: 1;
+    transform: translateY(-6px);
+  }
+
+  70% {
+    animation-timing-function: ease-in;
+    transform: translateY(-12px);
+  }
+
+  100% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    transform: translateY(-6px);
+  }
+}
