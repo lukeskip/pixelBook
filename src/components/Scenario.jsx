@@ -29,12 +29,9 @@ export default function Scenario({ dialog, setDialog }) {
 
   useEffect(() => {
     if (typeItCloud) {
-      console.log(dialog);
       typeItCloud.type(dialog).flush();
       typeItCloud.reset().go();
     }
-
-    console.log(typeItCloud);
 
     return () => {
       dialog;
