@@ -3,9 +3,13 @@ import TypeIt from "typeit-react";
 import typeItDefault from "../configurations/typeit-default.js";
 import Terminal, { ColorMode, TerminalOutput } from "react-terminal-ui";
 import Bash from "../commands/index.js";
+import { useSelector, useDispatch } from "react-redux";
+import { setDialog } from "../redux/actions.js";
 
-export default function ConsoleComponent({ setDialog }) {
+export default function ConsoleComponent() {
   const bash = new Bash();
+  const dialog = useSelector((state) => state.dialog);
+  const dispatch = useDispatch();
   const [terminalData, setTerminalData] = useState([
     "Bienvenido a mi website",
     "Yo soy cheko version 1.0.0",
@@ -13,7 +17,7 @@ export default function ConsoleComponent({ setDialog }) {
   ]);
 
   const handleInput = (input) => {
-    bash.run(input, (data) => setDialog(data));
+    bash.run(input, (data) => dispatch(setDialog(data)));
     setTerminalData([...terminalData, input]);
   };
 

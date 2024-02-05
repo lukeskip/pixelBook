@@ -10,9 +10,11 @@ import characterHead from "../assets/img/character-head.png";
 import characterEyes from "../assets/img/character-eyes.png";
 import TypeIt from "typeit-react";
 import typeItDefault from "../configurations/typeit-default.js";
+import { useSelector } from "react-redux";
 
-export default function Scenario({ dialog, setDialog }) {
+export default function Scenario() {
   const [typeItCloud, setTypeItCloud] = useState(false);
+  const dialog = useSelector((state) => state.dialog);
 
   const handleType = (instance) => {
     setTypeItCloud(instance);
