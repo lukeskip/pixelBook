@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import TypeIt from "typeit-react";
 import typeItDefault from "../configurations/typeit-default.js";
 import Terminal, { ColorMode, TerminalOutput } from "react-terminal-ui";
+import Bash from "../commands/index.js";
 
 export default function ConsoleComponent({ setDialog }) {
+  const bash = new Bash();
   const [terminalData, setTerminalData] = useState([
     "Bienvenido a mi website",
     "Yo soy cheko version 1.0.0",
@@ -11,8 +13,8 @@ export default function ConsoleComponent({ setDialog }) {
   ]);
 
   const handleInput = (input) => {
+    bash.run(input, (data) => setDialog(data));
     setTerminalData([...terminalData, input]);
-    setDialog(input);
   };
 
   useEffect(() => {
