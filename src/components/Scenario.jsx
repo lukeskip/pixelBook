@@ -6,8 +6,9 @@ import lamp from "../assets/img/lamp.png";
 import plant from "../assets/img/plant.png";
 import chair from "../assets/img/chair.png";
 import characterBody from "../assets/img/character-body.png";
-import characterHead from "../assets/img/character-head.png";
+import characterHead from "../assets/img/character-head-short.png";
 import characterEyes from "../assets/img/character-eyes.png";
+import desktop from "../assets/img/desktop.png";
 import TypeIt from "typeit-react";
 import typeItDefault from "../configurations/typeit-default.js";
 import { useSelector } from "react-redux";
@@ -45,7 +46,7 @@ export default function Scenario() {
       <img className="door" src={door} alt="" />
       <img className="window" src={windowImg} alt="" />
       <img className="lamp" src={lamp} alt="" />
-      <img className="chair" src={chair} alt="" />
+      <img className="desktop" src={desktop} alt="" />
       <img className="guitar" src={guitar} alt="" />
       <div className="character">
         <img className="body" src={characterBody} alt="" />

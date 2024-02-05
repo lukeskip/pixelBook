@@ -9,6 +9,7 @@ import { setDialog } from "../redux/actions.js";
 export default function ConsoleComponent() {
   const bash = new Bash();
   const dialog = useSelector((state) => state.dialog);
+  const consoleOpen = useSelector((state) => state.consoleOpen);
   const dispatch = useDispatch();
   const [terminalData, setTerminalData] = useState([
     "Bienvenido a mi website",
@@ -17,7 +18,7 @@ export default function ConsoleComponent() {
   ]);
 
   const handleInput = (input) => {
-    bash.run(input, (data) => dispatch(setDialog(data)));
+    bash.run(input, dispatch);
     setTerminalData([...terminalData, input]);
   };
 
@@ -32,7 +33,7 @@ export default function ConsoleComponent() {
   }, [terminalData]);
 
   return (
-    <div className="console">
+    <div className={`console ${consoleOpen}`}>
       <Terminal colorMode={ColorMode.Dark} onInput={handleInput}>
         {terminalData.map((item, index) => {
           return <TerminalOutput key={index}>{item}</TerminalOutput>;

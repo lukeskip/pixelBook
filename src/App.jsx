@@ -6,8 +6,7 @@ import Interface from "./routes/Interface";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Console />} />
-      <Route path="/interface" element={<Interface />} />
+      <Route path="/" element={<Interface />} />
     </Routes>
   );
 }

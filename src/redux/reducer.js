@@ -1,7 +1,8 @@
-import { SET_DIALOG, setDialog } from "./actions";
+import { SET_DIALOG, SET_CONSOLE, setDialog, setConsole } from "./actions";
 
 const initValue = {
   dialog: "",
+  consoleOpen: "open",
 };
 
 const reducer = (state = initValue, action) => {
@@ -10,6 +11,13 @@ const reducer = (state = initValue, action) => {
       return {
         ...state,
         dialog: action.payload,
+      };
+      break;
+
+    case SET_CONSOLE:
+      return {
+        ...state,
+        consoleOpen: action.payload,
       };
       break;
 
