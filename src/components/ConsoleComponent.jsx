@@ -5,9 +5,9 @@ import Terminal, { ColorMode, TerminalOutput } from "react-terminal-ui";
 
 export default function ConsoleComponent({ setDialog }) {
   const [terminalData, setTerminalData] = useState([
-    "una frase",
-    "otra frase",
-    "y la ultima frase",
+    "Bienvenido a mi website",
+    "Yo soy cheko version 1.0.0",
+    "teclea la palabra init y presiona enter",
   ]);
 
   const handleInput = (input) => {
