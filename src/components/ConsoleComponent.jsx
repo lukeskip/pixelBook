@@ -12,6 +12,7 @@ export default function ConsoleComponent({ setDialog }) {
 
   const handleInput = (input) => {
     setTerminalData([...terminalData, input]);
+    setDialog(input);
   };
 
   useEffect(() => {

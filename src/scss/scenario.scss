@@ -38,13 +38,13 @@
 
   .plant {
     position: absolute;
-    bottom: 260px;
+    bottom: 20%;
     left: 0px;
   }
 
   .character {
     position: absolute;
-    bottom: 450px;
+    bottom: 30%;
     right: 300px;
     width: 200px;
     height: 300px;
@@ -82,7 +82,7 @@
     text-align: center;
     font-size: 1.2em;
     position: absolute;
-    top: 200px;
+    bottom: 500px;
     right: 400px;
     animation: cloud 3s ease 0s infinite normal forwards;
     &::after,

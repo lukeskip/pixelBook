@@ -12,20 +12,34 @@ import TypeIt from "typeit-react";
 import typeItDefault from "../configurations/typeit-default.js";
 
 export default function Scenario({ dialog, setDialog }) {
-  const [typeItCloud, setTypeItCloud] = useState();
-  useEffect(() => {
-    if (typeItCloud) {
-      console.log(typeItCloud);
-      typeItCloud.unfreeze();
-      typeItCloud.delete(2).type(dialog);
-    }
-  }, [dialog]);
+  const [typeItCloud, setTypeItCloud] = useState(false);
 
   const handleType = (instance) => {
     setTypeItCloud(instance);
-
     return instance;
   };
+
+  const typeCreate = () => {
+    return (
+      <TypeIt getAfterInit={handleType} options={typeItDefault}>
+        {dialog}
+      </TypeIt>
+    );
+  };
+
+  useEffect(() => {
+    if (typeItCloud) {
+      console.log(dialog);
+      typeItCloud.type(dialog).flush();
+      typeItCloud.reset().go();
+    }
+
+    console.log(typeItCloud);
+
+    return () => {
+      dialog;
+    };
+  }, [dialog]);
 
   return (
     <div className="scenario">
@@ -43,9 +57,7 @@ export default function Scenario({ dialog, setDialog }) {
       </div>
       <img className="plant" src={plant} alt="" />
       <div className="speech-cloud">
-        <TypeIt getAfterInit={handleType} options={typeItDefault}>
-          asdasdasdasdas
-        </TypeIt>
+        <TypeIt getBeforeInit={handleType} options={typeItDefault}></TypeIt>
       </div>
     </div>
   );
