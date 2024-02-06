@@ -1,26 +1,31 @@
-import { setDialog, setConsole } from "../redux/actions";
+import { setDialog, setConsole, setTerminal } from "../redux/actions";
 class Bash {
-  constructor(command) {}
+  constructor(dispatch) {
+    this.dispatch = dispatch;
+  }
 
   run(input, dispatch) {
     let args = input.toString().trim().split(" ");
     const cmd = args.shift();
     args = args.join(" ");
-    this[cmd]
-      ? this[cmd](args, dispatch)
-      : console.log("no existe ese comando");
+    this[cmd] ? this[cmd](args) : this.error();
   }
 
-  print(args, dispatch) {
-    return dispatch(setDialog(args));
+  print(args) {
+    return this.dispatch(setDialog(args));
   }
 
-  init(args, dispatch) {
-    return dispatch(setConsole("close"));
+  init(args) {
+    this.dispatch(setTerminal(["init"]));
+    return this.dispatch(setConsole("close"));
   }
 
-  stop(args, dispatch) {
-    return dispatch(setConsole("open"));
+  stop(args) {
+    this.dispatch(setTerminal(["stop"]));
+    return this.dispatch(setConsole("open"));
+  }
+  error() {
+    this.dispatch(setTerminal(["Ese comando no existe intenta nueva mente"]));
   }
 }
 
