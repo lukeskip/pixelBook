@@ -8,7 +8,7 @@ class Bash {
     let args = input.toString().trim().split(" ");
     const cmd = args.shift();
     args = args.join(" ");
-    this[cmd] ? this[cmd](args) : this.error();
+    this[cmd] ? this[cmd](args) : this._error();
   }
 
   question(args) {
@@ -24,7 +24,7 @@ class Bash {
     this.dispatch(
       setTerminal([
         "type a command and press enter, you can run any of the following commands:",
-        "command1 command2 command3",
+        this._getCommands(),
       ])
     );
     return this.dispatch(setConsole("open"));
@@ -35,12 +35,22 @@ class Bash {
     return this.dispatch(setConsole("open"));
   }
 
-  error(message) {
+  _getCommands() {
+    let commands = Object.getOwnPropertyNames(Object.getPrototypeOf(this));
+
+    commands = commands.filter((item) => {
+      return item !== "run" && item !== "constructor" && !item.startsWith("_");
+    });
+
+    return commands.join("  ");
+  }
+
+  _error(message) {
     if (!message) {
       this.dispatch(
         setTerminal([
           "bash: command not found",
-          "To see a list of supported commands, run: help",
+          "To see a list of supported commands, type: 'help' and press 'enter' ",
         ])
       );
     } else {
