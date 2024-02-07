@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import TypeIt from "typeit-react";
+import TerminalLine from "./TerminalLine";
 import typeItDefault from "../configurations/typeit-default.js";
 import Terminal, { ColorMode, TerminalOutput } from "react-terminal-ui";
 import Bash from "../commands/index.js";
 import { useSelector, useDispatch } from "react-redux";
 import { setDialog, setTerminal } from "../redux/actions.js";
+import welcome from "../utils/welcome.js";
 
 export default function ConsoleComponent() {
   const dialog = useSelector((state) => state.dialog);
@@ -14,12 +15,12 @@ export default function ConsoleComponent() {
   const bash = new Bash(dispatch);
 
   const handleInput = (input) => {
-    dispatch(setTerminal([...terminalData, input]));
+    dispatch(setTerminal(input));
     bash.run(input);
   };
 
   useEffect(() => {
-    if (terminalData.length > 5) {
+    if (terminalData && terminalData.length > 5) {
       setTerminalData([]);
     }
 
@@ -31,9 +32,9 @@ export default function ConsoleComponent() {
   return (
     <div className={`console ${consoleOpen}`}>
       <Terminal colorMode={ColorMode.Dark} onInput={handleInput}>
-        {terminalData.map((item, index) => {
-          return <TerminalOutput key={index}>{item}</TerminalOutput>;
-        })}
+        <TerminalOutput>
+          {terminalData ? <TerminalLine messages={terminalData} /> : welcome}
+        </TerminalOutput>
       </Terminal>
     </div>
   );
