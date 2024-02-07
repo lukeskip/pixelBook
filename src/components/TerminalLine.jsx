@@ -26,10 +26,7 @@ export default function TerminalLine({ messages }) {
     }
   }, [messages]);
 
-  return (
-    <TypeIt
-      options={{ strings: messages, cursor: false, speed: 20 }}
-      getBeforeInit={(instance) => handleInstance(instance)}
-    ></TypeIt>
-  );
+  return messages.map((item, index) => {
+    return <TerminalOutput key={index}>{item}</TerminalOutput>;
+  });
 }

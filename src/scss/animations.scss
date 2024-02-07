@@ -64,3 +64,45 @@
     transform: translateY(-6px);
   }
 }
+
+@keyframes appear {
+  0% {
+    animation-timing-function: ease-in;
+    opacity: 1;
+  }
+
+  2% {
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  3% {
+    animation-timing-function: ease-in;
+    opacity: 1;
+  }
+
+  4% {
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  20% {
+    animation-timing-function: ease-in;
+    opacity: 1;
+  }
+
+  30% {
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  32% {
+    animation-timing-function: ease-in;
+    opacity: 1;
+  }
+
+  100% {
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+}

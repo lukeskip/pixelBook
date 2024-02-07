@@ -15,27 +15,17 @@ export default function ConsoleComponent() {
   const bash = new Bash(dispatch);
 
   const handleInput = (input) => {
-    dispatch(setTerminal(input));
+    dispatch(setTerminal([input]));
     bash.run(input);
   };
-
-  useEffect(() => {
-    if (terminalData && terminalData.length > 5) {
-      setTerminalData([]);
-    }
-
-    return () => {
-      terminalData;
-    };
-  }, [terminalData]);
-
   return (
-    <div className={`console ${consoleOpen}`}>
-      <Terminal colorMode={ColorMode.Dark} onInput={handleInput}>
-        <TerminalOutput>
-          {terminalData ? <TerminalLine messages={terminalData} /> : welcome}
-        </TerminalOutput>
-      </Terminal>
-    </div>
+    <>
+      <div className={`veil ${consoleOpen}`}></div>
+      <div className={`console ${consoleOpen}`}>
+        <Terminal colorMode={ColorMode.Dark} onInput={handleInput}>
+          <TerminalLine messages={terminalData}></TerminalLine>
+        </Terminal>
+      </div>
+    </>
   );
 }

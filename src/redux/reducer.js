@@ -5,11 +5,12 @@ import {
   setDialog,
   setConsole,
 } from "./actions";
+import welcome from "../utils/welcome";
 
 const initValue = {
   dialog: "",
   consoleOpen: "open",
-  terminalData: undefined,
+  terminalData: [...welcome],
 };
 
 const reducer = (state = initValue, action) => {
@@ -22,9 +23,15 @@ const reducer = (state = initValue, action) => {
       break;
 
     case SET_TERMINAL:
-      const newTerminal = state.terminalData
-        ? [...state.terminalData, action.payload]
-        : [action.payload];
+      let newTerminal = [];
+      if (state.terminalData.length > 3) {
+        newTerminal = [];
+      } else {
+        if (!state.terminalData.includes(action.payload)) {
+          newTerminal = [...state.terminalData, ...action.payload];
+        }
+      }
+
       return {
         ...state,
         terminalData: newTerminal,
