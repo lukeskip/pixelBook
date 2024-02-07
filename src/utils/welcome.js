@@ -9,6 +9,9 @@ const welcome = [
                                                                   
   `,
   "version 1.0.0",
+  "Soy un desarrolador creativo: si eres programador te gustará navegar mi página;",
+  "si no, aprenderás un poco del mundo de la programación",
+  " ",
   "teclea la palabra init y presiona enter",
 ];
 

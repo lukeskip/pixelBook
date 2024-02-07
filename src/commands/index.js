@@ -1,7 +1,16 @@
-import { setDialog, setConsole, setTerminal } from "../redux/actions";
+import {
+  setDialog,
+  setConsole,
+  setTerminal,
+  cleanTerminal,
+} from "../redux/actions";
+
+import initAnimation from "./initAnimation";
 class Bash {
   constructor(dispatch) {
     this.dispatch = dispatch;
+    this.status = "stopped";
+    this.initSpeed = 2000;
   }
 
   run(input, dispatch) {
@@ -12,11 +21,28 @@ class Bash {
   }
 
   question(args) {
-    return this.dispatch(setDialog(args));
+    if (this.status === "running") {
+      return this.dispatch(setDialog(args));
+    } else {
+      this.dispatch(
+        setTerminal([
+          "Application is not running, type 'init' and press 'enter' to run the application",
+        ])
+      );
+    }
   }
 
   init(args) {
-    this.dispatch(setTerminal(["init"]));
+    this.dispatch(setTerminal(["starting..."]));
+    this.dispatch(setTerminal([initAnimation()]));
+    this.status = "running";
+    setTimeout(() => {
+      this.dispatch(cleanTerminal("ready"));
+      setTimeout(() => {
+        this.help();
+      }, this.initSpeed / 2);
+    }, this.initSpeed);
+
     return this.dispatch(setConsole("close"));
   }
 
@@ -27,12 +53,23 @@ class Bash {
         this._getCommands(),
       ])
     );
-    return this.dispatch(setConsole("open"));
   }
 
   stop(args) {
-    this.dispatch(setTerminal(["stop"]));
-    return this.dispatch(setConsole("open"));
+    if (this.status === "running") {
+      this.status = "stopped";
+      this.dispatch(cleanTerminal("stopping..."));
+      setTimeout(() => {
+        this.dispatch(setTerminal(["Application stopped"]));
+      }, this.initSpeed);
+      this.dispatch(setConsole("open"));
+    } else {
+      this.dispatch(
+        setTerminal([
+          "Aplication is already stopped, type 'init' and press 'enter' to run the aplication",
+        ])
+      );
+    }
   }
 
   _getCommands() {

@@ -1,9 +1,8 @@
 import {
   SET_TERMINAL,
+  CLEAN_TERMINAL,
   SET_DIALOG,
   SET_CONSOLE,
-  setDialog,
-  setConsole,
 } from "./actions";
 import welcome from "../utils/welcome";
 
@@ -37,6 +36,12 @@ const reducer = (state = initValue, action) => {
         terminalData: newTerminal,
       };
       break;
+
+    case CLEAN_TERMINAL:
+      return {
+        ...state,
+        terminalData: [action.payload],
+      };
 
     case SET_CONSOLE:
       return {
