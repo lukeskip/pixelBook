@@ -5,6 +5,8 @@ import {
   cleanTerminal,
 } from "../redux/actions";
 
+import strings from "../utils/strings";
+
 import initAnimation from "./initAnimation";
 class Bash {
   constructor(dispatch) {
@@ -24,20 +26,16 @@ class Bash {
     if (this.status === "running") {
       return this.dispatch(setDialog(args));
     } else {
-      this.dispatch(
-        setTerminal([
-          "Application is not running, type 'init' and press 'enter' to run the application",
-        ])
-      );
+      this.dispatch(setTerminal([strings.isNotRunning]));
     }
   }
 
   init(args) {
-    this.dispatch(setTerminal(["starting..."]));
+    this.dispatch(setTerminal([strings.starting]));
     this.dispatch(setTerminal([initAnimation()]));
     this.status = "running";
     setTimeout(() => {
-      this.dispatch(cleanTerminal("ready"));
+      this.dispatch(cleanTerminal(strings.ready));
       setTimeout(() => {
         this.help();
       }, this.initSpeed / 2);
@@ -47,28 +45,19 @@ class Bash {
   }
 
   help(args) {
-    this.dispatch(
-      setTerminal([
-        "type a command and press enter, you can run any of the following commands:",
-        this._getCommands(),
-      ])
-    );
+    this.dispatch(setTerminal([strings.help, this._getCommands()]));
   }
 
   stop(args) {
     if (this.status === "running") {
       this.status = "stopped";
-      this.dispatch(cleanTerminal("stopping..."));
+      this.dispatch(cleanTerminal(strings.stopping));
       setTimeout(() => {
-        this.dispatch(setTerminal(["Application stopped"]));
+        this.dispatch(setTerminal([strings.stopped]));
       }, this.initSpeed);
       this.dispatch(setConsole("open"));
     } else {
-      this.dispatch(
-        setTerminal([
-          "Aplication is already stopped, type 'init' and press 'enter' to run the aplication",
-        ])
-      );
+      this.dispatch(setTerminal([strings.stopRepeated]));
     }
   }
 
@@ -84,12 +73,7 @@ class Bash {
 
   _error(message) {
     if (!message) {
-      this.dispatch(
-        setTerminal([
-          "bash: command not found",
-          "To see a list of supported commands, type: 'help' and press 'enter' ",
-        ])
-      );
+      this.dispatch(setTerminal([strings.commandNotFound, strings.runHelp]));
     } else {
       this.dispatch(setTerminal([message]));
     }
