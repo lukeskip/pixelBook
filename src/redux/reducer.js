@@ -3,6 +3,7 @@ import {
   CLEAN_TERMINAL,
   SET_DIALOG,
   SET_CONSOLE,
+  SET_LANG,
 } from "./actions";
 import welcome from "../utils/welcome";
 
@@ -10,6 +11,7 @@ const initValue = {
   dialog: "",
   consoleOpen: "open",
   terminalData: [...welcome],
+  lang: "es",
 };
 
 const reducer = (state = initValue, action) => {
@@ -23,10 +25,10 @@ const reducer = (state = initValue, action) => {
 
     case SET_TERMINAL:
       let newTerminal = [];
-      if (state.terminalData.length > 3) {
-        newTerminal = [];
-      } else {
-        if (!state.terminalData.includes(action.payload)) {
+      if (!state.terminalData.includes(action.payload)) {
+        if (state.terminalData.length > 3) {
+          newTerminal = [...action.payload];
+        } else {
           newTerminal = [...state.terminalData, ...action.payload];
         }
       }
@@ -42,6 +44,13 @@ const reducer = (state = initValue, action) => {
         ...state,
         terminalData: [action.payload],
       };
+      break;
+    case SET_LANG:
+      return {
+        ...state,
+        lang: [action.payload],
+      };
+      break;
 
     case SET_CONSOLE:
       return {

@@ -11,8 +11,9 @@ export default function ConsoleComponent() {
   const dialog = useSelector((state) => state.dialog);
   const consoleOpen = useSelector((state) => state.consoleOpen);
   const terminalData = useSelector((state) => state.terminalData);
+  const lang = useSelector((state) => state.lang);
   const dispatch = useDispatch();
-  const [bash, setBash] = useState(new Bash(dispatch));
+  const [bash, setBash] = useState(new Bash(dispatch, lang));
 
   const handleInput = (input) => {
     dispatch(setTerminal([input]));

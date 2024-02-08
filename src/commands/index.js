@@ -8,13 +8,16 @@ import {
 import strings from "../utils/strings";
 
 import initAnimation from "./initAnimation";
+
 class Bash {
-  constructor(dispatch) {
+  constructor(dispatch, lang) {
     this.dispatch = dispatch;
+    this.lang = lang;
     this.status = "stopped";
     this.initSpeed = 2000;
   }
 
+  // This is the entry function, it receives an input and gets the command it should run and tha arguments in case there are some
   run(input, dispatch) {
     let args = input.toString().trim().split(" ");
     const cmd = args.shift();
@@ -22,45 +25,83 @@ class Bash {
     this[cmd] ? this[cmd](args) : this._error();
   }
 
-  question(args) {
+  // This function gets a string and makes a request to the back side and show the dialog
+  question(string) {
     if (this.status === "running") {
-      return this.dispatch(setDialog(args));
+      return this._showDialog(string);
     } else {
-      this.dispatch(setTerminal([strings.isNotRunning]));
+      this.dispatch(setTerminal([strings[this.lang].isNotRunning]));
     }
   }
 
+  // This function fake a applications start and shows the scenario
   init(args) {
-    this.dispatch(setTerminal([strings.starting]));
-    this.dispatch(setTerminal([initAnimation()]));
-    this.status = "running";
-    setTimeout(() => {
-      this.dispatch(cleanTerminal(strings.ready));
-      setTimeout(() => {
+    if (this.status !== "running") {
+      this._consoleMessage([strings[this.lang].starting]);
+      // this._consoleMessage([initAnimation()]);
+      this.status = "running";
+
+      (async () => {
+        await this._delay(strings[this.lang].ready);
         this.help();
-      }, this.initSpeed / 2);
-    }, this.initSpeed);
+      })();
 
-    return this.dispatch(setConsole("close"));
+      return this.dispatch(setConsole("close"));
+    } else {
+      this._consoleMessage([[strings[this.lang].initRepeated]]);
+    }
   }
 
+  // It shows the available commands in the console
   help(args) {
-    this.dispatch(setTerminal([strings.help, this._getCommands()]));
+    this._consoleMessage([strings[this.lang].help, this._getCommands()]);
   }
 
+  // It allows to download the resumé in PDF, it receives a "flag" so it can deliver different versions of the resume
+  download(args) {
+    this.dispatch(setTerminal([string.wait]));
+  }
+
+  // It fakes the application stop, and hide the scenario
   stop(args) {
     if (this.status === "running") {
       this.status = "stopped";
-      this.dispatch(cleanTerminal(strings.stopping));
-      setTimeout(() => {
-        this.dispatch(setTerminal([strings.stopped]));
-      }, this.initSpeed);
+      this._consoleMessage(strings[this.lang].stopping);
+      (async () => {
+        await this._delay([strings[this.lang].stopped]);
+        await this._delay([strings[this.lang].stopped]);
+      })();
       this.dispatch(setConsole("open"));
     } else {
-      this.dispatch(setTerminal([strings.stopRepeated]));
+      this.dispatch(setTerminal([strings[this.lang].stopRepeated]));
     }
   }
 
+  // It shows a message in the console delayed by a given time
+  _delay(string, speed = this.initSpeed) {
+    return new Promise((resolve) =>
+      setTimeout(() => {
+        this._consoleMessage(string);
+        resolve();
+      }, speed)
+    );
+  }
+
+  // it shows a "console" message
+  _consoleMessage(string) {
+    if (Array.isArray(string)) {
+      this.dispatch(setTerminal([...string]));
+    } else {
+      this.dispatch(cleanTerminal(string));
+    }
+  }
+
+  // it shows a dialog of my alter ego
+  _showDialog(string) {
+    this.dispatch(setDialog(string));
+  }
+
+  // It gets the available commands
   _getCommands() {
     let commands = Object.getOwnPropertyNames(Object.getPrototypeOf(this));
 
@@ -71,13 +112,16 @@ class Bash {
     return commands.join("  ");
   }
 
+  // It show an error in the console
   _error(message) {
     if (!message) {
-      this.dispatch(setTerminal([strings.commandNotFound, strings.runHelp]));
+      this._consoleMessage([
+        strings[this.lang].commandNotFound,
+        strings[this.lang].runHelp,
+      ]);
     } else {
-      this.dispatch(setTerminal([message]));
+      this.consoleMessage([message]);
     }
   }
 }
-
 export default Bash;
