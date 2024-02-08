@@ -4,12 +4,12 @@ import {
   SET_DIALOG,
   SET_CONSOLE,
 } from "./actions";
-import welcome from "../utils/welcome";
+import strings from "../utils/strings";
 
 const initValue = {
   dialog: "",
   consoleOpen: "open",
-  terminalData: [...welcome],
+  terminalData: [...strings.en.welcome],
 };
 
 const reducer = (state = initValue, action) => {

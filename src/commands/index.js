@@ -38,7 +38,7 @@ class Bash {
   init(args) {
     if (this.status !== "running") {
       this._consoleMessage([strings[this.language].starting]);
-      // this._consoleMessage([initAnimation()]);
+      this._consoleMessage([initAnimation()]);
       this.status = "running";
 
       (async () => {
@@ -122,7 +122,7 @@ class Bash {
     return commands.join("  ");
   }
 
-  // It show an error in the console
+  // It shows an error in the console
   _error(message) {
     if (!message) {
       this._consoleMessage([

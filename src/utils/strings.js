@@ -1,3 +1,4 @@
+import asciiDrawing from "./asciiDrawing";
 const strings = {
   en: {
     stopRepeated:
@@ -17,6 +18,15 @@ const strings = {
     languageAvailable:
       "The only available languages are 'es' for Spanish and 'en' for English",
     currentLanguage: "The current language is English",
+    welcome: [
+      "Bienvenido a mi website",
+      asciiDrawing,
+      "version 1.0.0",
+      "Soy un desarrolador creativo: si eres programador te gustará navegar mi página;",
+      "si no, aprenderás un poco del mundo de la programación",
+      " ",
+      "teclea la palabra init y presiona enter",
+    ],
   },
   es: {
     stopRepeated:

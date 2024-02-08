@@ -5,7 +5,6 @@ import Terminal, { ColorMode, TerminalOutput } from "react-terminal-ui";
 import Bash from "../commands/index.js";
 import { useSelector, useDispatch } from "react-redux";
 import { setDialog, setTerminal } from "../redux/actions.js";
-import welcome from "../utils/welcome.js";
 
 export default function ConsoleComponent() {
   const dialog = useSelector((state) => state.dialog);
