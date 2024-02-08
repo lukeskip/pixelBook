@@ -10,9 +10,9 @@ import strings from "../utils/strings";
 import initAnimation from "./initAnimation";
 
 class Bash {
-  constructor(dispatch, lang) {
+  constructor(dispatch, language = "en") {
     this.dispatch = dispatch;
-    this.lang = lang;
+    this.language = language;
     this.status = "stopped";
     this.initSpeed = 2000;
   }
@@ -30,31 +30,31 @@ class Bash {
     if (this.status === "running") {
       return this._showDialog(string);
     } else {
-      this.dispatch(setTerminal([strings[this.lang].isNotRunning]));
+      this.dispatch(setTerminal([strings[this.language].isNotRunning]));
     }
   }
 
   // This function fake a applications start and shows the scenario
   init(args) {
     if (this.status !== "running") {
-      this._consoleMessage([strings[this.lang].starting]);
+      this._consoleMessage([strings[this.language].starting]);
       // this._consoleMessage([initAnimation()]);
       this.status = "running";
 
       (async () => {
-        await this._delay(strings[this.lang].ready);
+        await this._delay(strings[this.language].ready);
         this.help();
       })();
 
       return this.dispatch(setConsole("close"));
     } else {
-      this._consoleMessage([[strings[this.lang].initRepeated]]);
+      this._consoleMessage([[strings[this.language].initRepeated]]);
     }
   }
 
   // It shows the available commands in the console
   help(args) {
-    this._consoleMessage([strings[this.lang].help, this._getCommands()]);
+    this._consoleMessage([strings[this.language].help, this._getCommands()]);
   }
 
   // It allows to download the resumé in PDF, it receives a "flag" so it can deliver different versions of the resume
@@ -62,18 +62,28 @@ class Bash {
     this.dispatch(setTerminal([string.wait]));
   }
 
+  lang(language) {
+    language = language.replace("-", "");
+    if (!["es", "en"].includes(language))
+      return this._consoleMessage([strings[this.language].languageAvailable]);
+    if (language !== this.language) {
+      this.language = language;
+      this._consoleMessage([strings[this.language].currentLanguage]);
+    }
+  }
+
   // It fakes the application stop, and hide the scenario
   stop(args) {
     if (this.status === "running") {
       this.status = "stopped";
-      this._consoleMessage(strings[this.lang].stopping);
+      this._consoleMessage(strings[this.language].stopping);
       (async () => {
-        await this._delay([strings[this.lang].stopped]);
-        await this._delay([strings[this.lang].stopped]);
+        await this._delay([strings[this.language].stopped]);
+        await this._delay([strings[this.language].stopped]);
       })();
       this.dispatch(setConsole("open"));
     } else {
-      this.dispatch(setTerminal([strings[this.lang].stopRepeated]));
+      this.dispatch(setTerminal([strings[this.language].stopRepeated]));
     }
   }
 
@@ -116,8 +126,8 @@ class Bash {
   _error(message) {
     if (!message) {
       this._consoleMessage([
-        strings[this.lang].commandNotFound,
-        strings[this.lang].runHelp,
+        strings[this.language].commandNotFound,
+        strings[this.language].runHelp,
       ]);
     } else {
       this.consoleMessage([message]);
