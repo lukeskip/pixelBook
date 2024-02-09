@@ -22,9 +22,6 @@ const strings = {
       "Bienvenido a mi website",
       asciiDrawing,
       "version 1.0.0",
-      "Soy un desarrolador creativo: si eres programador te gustará navegar mi página;",
-      "si no, aprenderás un poco del mundo de la programación",
-      " ",
       "teclea la palabra init y presiona enter",
     ],
   },
@@ -46,6 +43,15 @@ const strings = {
     languageAvailable:
       "Los únicos idiomas disponibles son  'es' para Español y 'en' para Inglés",
     currentLanguage: "El idioma actual es español",
+    welcome: [
+      "Bienvenido a mi website",
+      asciiDrawing,
+      "version 1.0.0",
+      "Soy un desarrolador creativo: si eres programador te gustará navegar mi página;",
+      "si no, aprenderás un poco del mundo de la programación",
+      " ",
+      "teclea la palabra init y presiona enter",
+    ],
   },
 };
 export default strings;

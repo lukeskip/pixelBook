@@ -79,7 +79,6 @@ class Bash {
       this._consoleMessage(strings[this.language].stopping);
       (async () => {
         await this._delay([strings[this.language].stopped]);
-        await this._delay([strings[this.language].stopped]);
       })();
       this.dispatch(setConsole("open"));
     } else {
