@@ -10,6 +10,7 @@ export default function ConsoleComponent() {
   const dialog = useSelector((state) => state.dialog);
   const consoleOpen = useSelector((state) => state.consoleOpen);
   const terminalData = useSelector((state) => state.terminalData);
+  const prompt = useSelector((state) => state.prompt);
   const lang = useSelector((state) => state.lang);
   const dispatch = useDispatch();
   const [bash, setBash] = useState(new Bash(dispatch, lang));
@@ -22,7 +23,11 @@ export default function ConsoleComponent() {
     <>
       <div className={`veil ${consoleOpen}`}></div>
       <div className={`console ${consoleOpen}`}>
-        <Terminal colorMode={ColorMode.Dark} onInput={handleInput}>
+        <Terminal
+          prompt={prompt}
+          colorMode={ColorMode.Dark}
+          onInput={handleInput}
+        >
           <TerminalLine messages={terminalData}></TerminalLine>
         </Terminal>
       </div>

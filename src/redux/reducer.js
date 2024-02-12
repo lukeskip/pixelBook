@@ -3,12 +3,18 @@ import {
   CLEAN_TERMINAL,
   SET_DIALOG,
   SET_CONSOLE,
+  SET_CATEGORY,
+  SET_PROMPT,
+  SET_ERROR_MODE,
 } from "./actions";
 import strings from "../utils/strings";
 
 const initValue = {
   dialog: "",
+  prompt: "$",
   consoleOpen: "open",
+  category: "",
+  errorMode: false,
   terminalData: [...strings.en.welcome],
 };
 
@@ -18,6 +24,24 @@ const reducer = (state = initValue, action) => {
       return {
         ...state,
         dialog: action.payload,
+      };
+      break;
+    case SET_CATEGORY:
+      return {
+        ...state,
+        category: action.payload,
+      };
+      break;
+    case SET_ERROR_MODE:
+      return {
+        ...state,
+        errorMode: action.payload,
+      };
+      break;
+    case SET_PROMPT:
+      return {
+        ...state,
+        prompt: action.payload,
       };
       break;
 

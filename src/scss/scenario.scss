@@ -6,6 +6,19 @@
   background-position: center;
   overflow: hidden;
 
+  .board {
+    position: absolute;
+    background-color: rgba(256, 256, 256, 0.7);
+    width: 50%;
+    height: 50vh;
+    top: 10%;
+    left: -100%;
+    transition: left 1s ease-out;
+    padding: 20px;
+    &.open {
+      left: 10%;
+    }
+  }
   .guitar {
     position: absolute;
     top: 20%;

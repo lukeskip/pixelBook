@@ -3,7 +3,11 @@ import {
   setConsole,
   setTerminal,
   cleanTerminal,
+  setCategory,
+  setPrompt,
+  setErrorMode,
 } from "../redux/actions";
+import questionRequest from "../apiRequest/questionRequest";
 
 import strings from "../utils/strings";
 
@@ -15,6 +19,7 @@ class Bash {
     this.language = language;
     this.status = "stopped";
     this.initSpeed = 2000;
+    this.questioning = false;
   }
 
   // This is the entry function, it receives an input and gets the command it should run and tha arguments in case there are some
@@ -22,13 +27,39 @@ class Bash {
     let args = input.toString().trim().split(" ");
     const cmd = args.shift();
     args = args.join(" ");
-    this[cmd] ? this[cmd](args) : this._error();
+
+    if (this[cmd]) {
+      this[cmd](args);
+    } else {
+      if (this.interview) {
+        return this._question(args);
+      } else {
+        this._error();
+      }
+    }
+  }
+
+  interview() {
+    this.questioning = true;
+    this.dispatch(setPrompt("[interview]"));
   }
 
   // This function gets a string and makes a request to the back side and show the dialog
-  question(string) {
+  _question(string) {
     if (this.status === "running") {
-      return this._showDialog(string);
+      this._consoleMessage(strings[this.language].wait);
+      (async () => {
+        try {
+          const request = await questionRequest(string);
+          this.dispatch(setCategory(request.data.category));
+          this._consoleMessage(strings[this.language].wait);
+          this._delay("Escribe 'stop' si deseas salir del modo entrevista");
+          return this._showDialog(request.data.answer);
+        } catch (error) {
+          this.dispatch(setErrorMode(true));
+          this._consoleMessage(error.message);
+        }
+      })();
     } else {
       this.dispatch(setTerminal([strings[this.language].isNotRunning]));
     }
@@ -74,6 +105,15 @@ class Bash {
 
   // It fakes the application stop, and hide the scenario
   stop(args) {
+    if (this.questioning === true) {
+      this._consoleMessage(strings[this.language].stopping);
+      (async () => {
+        await this._delay([strings[this.language].stopped]);
+      })();
+      this.questioning = false;
+      return this.dispatch(setPrompt("$"));
+    }
+
     if (this.status === "running") {
       this.status = "stopped";
       this._consoleMessage(strings[this.language].stopping);

@@ -14,7 +14,7 @@ const strings = {
     stopping: "Stopping...",
     stopped: "Application stopped, come back soon!!!",
     initRepeated: "Application already running, type 'stop' ",
-    wait: "wait...",
+    wait: "Generando respuesta...",
     languageAvailable:
       "The only available languages are 'es' for Spanish and 'en' for English",
     currentLanguage: "The current language is English",
