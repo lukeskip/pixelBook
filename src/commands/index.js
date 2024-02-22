@@ -29,9 +29,10 @@ class Bash {
     args = args.join(" ");
 
     if (this[cmd]) {
+      console.log(this[cmd]);
       this[cmd](args);
     } else {
-      if (this.interview) {
+      if (this.questioning) {
         return this._question(args);
       } else {
         this._error();

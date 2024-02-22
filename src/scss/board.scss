@@ -1,0 +1,24 @@
+.board {
+  position: absolute;
+  background: #d2f7ff;
+  width: 50%;
+  height: 50vh;
+  border-radius: 5px;
+  top: 10%;
+  left: -100%;
+  transition: left 1s ease-out;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -12px -10px 21px 0px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: -12px -10px 21px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: -12px -10px 21px 0px rgba(0, 0, 0, 0.25);
+  &.open {
+    left: 5%;
+  }
+
+  p {
+    padding-left: 40px;
+  }
+}

@@ -5,24 +5,29 @@
   background-size: cover;
   background-position: center;
   overflow: hidden;
-
-  .board {
+  &::before {
+    font-family: $secondary-font;
+    content: "{";
+    font-size: 7em;
     position: absolute;
-    background-color: rgba(256, 256, 256, 0.7);
-    width: 50%;
-    height: 50vh;
-    top: 10%;
-    left: -100%;
-    transition: left 1s ease-out;
-    padding: 20px;
-    &.open {
-      left: 10%;
-    }
+    left: 0;
+    top: 0;
+    color: white;
   }
+  &::after {
+    font-family: $secondary-font;
+    content: "}";
+    font-size: 7em;
+    position: absolute;
+    right: 0;
+    bottom: 200px;
+  }
+  @import "../scss/board.scss";
+
   .guitar {
     position: absolute;
-    top: 20%;
-    right: 100px;
+    top: 35%;
+    right: 1%;
   }
 
   .chair {
@@ -55,73 +60,11 @@
     left: 0px;
   }
 
-  .character {
-    position: absolute;
-    bottom: 30%;
-    right: 300px;
-    width: 200px;
-    height: 300px;
-
-    .body {
-      position: absolute;
-      bottom: 0;
-      left: 30px;
-    }
-
-    .head {
-      position: absolute;
-      top: -20px;
-      left: 0;
-      animation: bounce 2s ease 0s infinite normal forwards;
-      .eyes {
-        position: absolute;
-        top: 95px;
-        left: 55px;
-        animation: bounceEyes 3s ease 0s infinite normal forwards;
-      }
-    }
-  }
+  @import "../scss/character.scss";
 
   .desktop {
     position: absolute;
-    bottom: 300px;
-    left: 300px;
-  }
-
-  .speech-cloud {
-    width: 250px;
-    min-height: 50px;
-    background-image: url("../assets/img/speech-cloud-back.png");
-    background-position: center;
-    background-size: 100% auto;
-    font-family: "Orbitron", sans-serif;
-    color: black;
-    padding: 7px 30px;
-    font-weight: 500;
-    text-align: center;
-    font-size: 1.2em;
-    position: absolute;
-    bottom: 600px;
-    right: 420px;
-    animation: cloud 3s ease 0s infinite normal forwards;
-    &::after,
-    &:before {
-      content: "";
-      height: 60px;
-      width: 100%;
-      position: absolute;
-      left: 0;
-      background-size: 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-    &:before {
-      top: -50px;
-      background-image: url("../assets/img/speech-cloud-before.png");
-    }
-    &:after {
-      bottom: -60px;
-      background-image: url("../assets/img/speech-cloud-after.png");
-    }
+    bottom: 400px;
+    left: 100px;
   }
 }

@@ -1,5 +1,6 @@
 .interface {
   overflow: hidden;
+  @import "./intro.scss";
   @import "./scenario.scss";
   @import "./console.scss";
 }
