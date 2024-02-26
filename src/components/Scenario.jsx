@@ -9,6 +9,7 @@ import cloudTerms from "../assets/img/cloud-terms.png";
 import ProfessionalBoard from "../components/PrefessionalBoard";
 import ShowRoom from "../components/ShowRoom";
 import Intro from "../components/Intro";
+import Links from "../components/Links";
 
 import Character from "../components/character";
 import desktop from "../assets/img/desktop.png";
@@ -20,8 +21,10 @@ export default function Scenario() {
 
   return (
     <div className="scenario">
+      <Links />
       <img src={guitar} className="guitar" alt="" />
-      <Intro />
+
+      <Intro category />
       <div className={`board ${category === "personal" && "open"}`}>
         <h1>personal</h1>
       </div>
@@ -36,8 +39,6 @@ export default function Scenario() {
       </div>
 
       <Character />
-
-      {/* <img className="plant" src={plant} alt="" /> */}
     </div>
   );
 }

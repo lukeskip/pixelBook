@@ -24,6 +24,8 @@ const strings = {
       "version 1.0.0",
       "teclea la palabra init y presiona enter",
     ],
+    startInterview:
+      "Ask me anything throught the console at the bottom of the screen",
   },
   es: {
     stopRepeated:
@@ -53,5 +55,7 @@ const strings = {
       "teclea la palabra init y presiona enter",
     ],
   },
+  startInterview:
+    "Pregúntame lo que quieras a través de la consola ubicada en la parte baja de la pantalla",
 };
 export default strings;

@@ -1,28 +1,45 @@
 import React from "react";
+import nestle from "../assets/img/logos/nestle.png";
+import loreal from "../assets/img/logos/loreal.png";
+import unilever from "../assets/img/logos/unilever.png";
+import biotherm from "../assets/img/logos/biotherm.png";
 
 export default function PrefessionalBoard() {
   return (
     <div>
       <h2>Mi experiencia laboral:</h2>
       <p>
-        2014 a la 2016 Diseñador Web Senior en Egocentra, proyectos para
+        <span className="year">2014</span> a la{" "}
+        <span className="year">2016</span> Diseñador Web Senior en Egocentra,
+        proyectos para{" "}
         <strong>L'Oreal, Essie, Biotherm, Unilever y Samsung</strong>.
       </p>
       <p>
-        2016 a 2017 <strong>Director Creativo</strong> en Egocentra.
+        <span className="year">2016</span> a <span className="year">2017</span>{" "}
+        <strong>Director Creativo</strong> en Egocentra.
       </p>
       <p>
-        2017 a 2018 <strong>Desarrollador Web</strong> en el Tribunal Electoral
-        de la Ciudad de México.
+        <span className="year">2017</span> a <span className="year">2018</span>{" "}
+        <strong>Desarrollador Web</strong> en el Tribunal Electoral de la Ciudad
+        de México.
       </p>
       <p>
-        2019 a 2020{" "}
-        <strong>Director de Arte y Diseño Soluciones de Comunicación.</strong>
+        <span className="year">2019</span> a <span className="year">2020</span>{" "}
+        Director de Arte y Diseño Soluciones de Comunicación,
+        <strong> proyectos para Coca Cola, Siemens, Pepsico.</strong>
       </p>
       <p>
-        2020 a 2023 Diversos proyectos freelance para Nestlé, Ferrero Rocher y
-        L’Oreal.
+        <span className="year">2020</span> a <span className="year">2023</span>{" "}
+        Diversos proyectos freelance para Nestlé, Ferrero Rocher y L’Oreal.
       </p>
+      <div className="logos">
+        <div className="logo">
+          <img src={nestle} alt="" />
+          <img src={unilever} alt="" />
+          <img src={loreal} alt="" />
+          <img src={biotherm} alt="" />
+        </div>
+      </div>
     </div>
   );
 }

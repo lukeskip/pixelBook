@@ -1,0 +1,18 @@
+.links {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-family: $main-font;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 10px;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}

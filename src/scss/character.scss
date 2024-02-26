@@ -1,7 +1,7 @@
 .character {
   position: absolute;
-  bottom: 30%;
-  right: 100px;
+  bottom: 20%;
+  right: 10%;
   width: 200px;
   height: 300px;
 
@@ -45,7 +45,7 @@
     bottom: 300px;
     right: 100px;
     animation: cloud 3s ease 0s infinite normal forwards;
-    opacity: 0.2;
+    opacity: 0;
     &::after,
     &:before {
       content: "";

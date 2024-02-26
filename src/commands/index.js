@@ -29,11 +29,10 @@ class Bash {
     args = args.join(" ");
 
     if (this[cmd]) {
-      console.log(this[cmd]);
       this[cmd](args);
     } else {
       if (this.questioning) {
-        return this._question(args);
+        return this._question(input);
       } else {
         this._error();
       }
@@ -43,10 +42,12 @@ class Bash {
   interview() {
     this.questioning = true;
     this.dispatch(setPrompt("[interview]"));
+    this._showDialog(strings[this.language].startInterview);
   }
 
   // This function gets a string and makes a request to the back side and show the dialog
   _question(string) {
+    console.log(string);
     if (this.status === "running") {
       this._consoleMessage(strings[this.language].wait);
       (async () => {

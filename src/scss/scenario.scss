@@ -10,7 +10,7 @@
     content: "{";
     font-size: 7em;
     position: absolute;
-    left: 0;
+    left: 20px;
     top: 0;
     color: white;
   }
@@ -19,15 +19,16 @@
     content: "}";
     font-size: 7em;
     position: absolute;
-    right: 0;
+    right: 20px;
     bottom: 200px;
   }
   @import "../scss/board.scss";
+  @import "../scss/links.scss";
 
   .guitar {
     position: absolute;
-    top: 35%;
-    right: 1%;
+    bottom: 20%;
+    right: 3%;
   }
 
   .chair {

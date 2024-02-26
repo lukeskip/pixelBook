@@ -1,24 +1,43 @@
 .board {
   position: absolute;
-  background: #d2f7ff;
+  background: none;
   width: 50%;
-  height: 50vh;
+  height: 70vh;
   border-radius: 5px;
-  top: 10%;
+  top: 5%;
   left: -100%;
   transition: left 1s ease-out;
   padding: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: -12px -10px 21px 0px rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: -12px -10px 21px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: -12px -10px 21px 0px rgba(0, 0, 0, 0.25);
+  color: white;
   &.open {
     left: 5%;
   }
 
+  h1,
+  h2,
+  h3 {
+    color: black;
+  }
+
   p {
     padding-left: 40px;
+  }
+
+  .year {
+    color: white;
+    font-family: $main-font;
+    color: black;
+  }
+
+  .logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 4px;
+    padding: 5px;
   }
 }
