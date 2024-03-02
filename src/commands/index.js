@@ -42,24 +42,22 @@ class Bash {
   interview() {
     this.questioning = true;
     this.dispatch(setPrompt("[interview]"));
-    this._showDialog(strings[this.language].startInterview);
+    this._showDialog([strings[this.language].startInterview]);
   }
 
   // This function gets a string and makes a request to the back side and show the dialog
   _question(string) {
-    console.log(string);
     if (this.status === "running") {
       this._consoleMessage(strings[this.language].wait);
       (async () => {
         try {
           const request = await questionRequest(string);
+          this._consoleMessage(strings[this.language].ready);
           this.dispatch(setCategory(request.data.category));
-          this._consoleMessage(strings[this.language].wait);
-          this._delay("Escribe 'stop' si deseas salir del modo entrevista");
           return this._showDialog(request.data.answer);
         } catch (error) {
-          this.dispatch(setErrorMode(true));
-          this._consoleMessage(error.message);
+          this._consoleMessage(error.response.data.message);
+          this._showDialog([strings[this.language].error]);
         }
       })();
     } else {
@@ -72,6 +70,9 @@ class Bash {
     if (this.status !== "running") {
       this._consoleMessage([strings[this.language].starting]);
       this._consoleMessage([initAnimation()]);
+      this._showDialog([
+        "hablemos a través de la consola inicia el modo entrevista",
+      ]);
       this.status = "running";
 
       (async () => {
@@ -148,8 +149,8 @@ class Bash {
   }
 
   // it shows a dialog of my alter ego
-  _showDialog(string) {
-    this.dispatch(setDialog(string));
+  _showDialog(array) {
+    this.dispatch(setDialog(array));
   }
 
   // It gets the available commands

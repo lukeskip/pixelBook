@@ -1,4 +1,3 @@
-import React from "react";
 import nestle from "../assets/img/logos/nestle.png";
 import loreal from "../assets/img/logos/loreal.png";
 import unilever from "../assets/img/logos/unilever.png";
@@ -33,13 +32,28 @@ export default function PrefessionalBoard() {
         Diversos proyectos freelance para Nestlé, Ferrero Rocher y L’Oreal.
       </p>
       <div className="logos">
-        <div className="logo">
-          <img src={nestle} alt="" />
-          <img src={unilever} alt="" />
-          <img src={loreal} alt="" />
-          <img src={biotherm} alt="" />
-        </div>
+        <img className="logo" src={nestle} alt="" />
+        <img className="logo" src={unilever} alt="" />
+        <img className="logo" src={loreal} alt="" />
+        <img className="logo" src={biotherm} alt="" />
       </div>
+      <p>
+        Reprehenderit anim ad in aliquip aute ipsum. Minim cillum duis velit
+        anim. Eiusmod irure qui commodo minim nulla incididunt est id culpa qui
+        officia fugiat enim in. Pariatur occaecat eiusmod laboris culpa deserunt
+        irure ad nulla aliquip. Cillum ipsum aliqua dolor qui proident aliqua
+        dolor duis eu eiusmod dolore excepteur. Nostrud laborum magna deserunt
+        magna aliquip sunt officia ut ex laborum. In ut ad esse occaecat
+        occaecat.
+      </p>
+      <p>
+        Sunt eu voluptate ea nostrud veniam culpa consequat incididunt. Ea
+        fugiat culpa mollit do reprehenderit in cupidatat proident labore est
+        dolore ea Lorem. Occaecat sit deserunt magna et. Sunt veniam amet aliqua
+        amet. Ad voluptate dolore id tempor fugiat ipsum magna. Laboris sunt
+        esse mollit minim consequat laboris laboris laborum labore irure sit
+        exercitation tempor.
+      </p>
     </div>
   );
 }

@@ -4,7 +4,9 @@
   background-image: url("../assets/img/scenario-back.png");
   background-size: cover;
   background-position: center;
-  overflow: hidden;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  padding-bottom: 40px;
   &::before {
     font-family: $secondary-font;
     content: "{";
@@ -27,8 +29,9 @@
 
   .guitar {
     position: absolute;
-    bottom: 20%;
-    right: 3%;
+    bottom: 30%;
+    right: 10%;
+    z-index: 2;
   }
 
   .chair {

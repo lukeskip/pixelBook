@@ -1,18 +1,13 @@
-import React from "react";
-
-export default function Intro({ category }) {
-  console.log(category);
+export default function Intro() {
   return (
-    <div>
-      {!category && (
-        <div>
-          <h1>
-            Sergio <br /> "Cheko"
-            <br /> García
-          </h1>
-          <h2>FullStack Developer</h2>
-        </div>
-      )}
+    <div className="intro">
+      <div>
+        <h1>
+          Sergio <br /> "Cheko"
+          <br /> García
+        </h1>
+        <h2>FullStack Developer</h2>
+      </div>
     </div>
   );
 }

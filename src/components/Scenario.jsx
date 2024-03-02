@@ -1,18 +1,9 @@
-import React, { useEffect, useState } from "react";
-import door from "../assets/img/door.png";
-import windowImg from "../assets/img/window.png";
 import guitar from "../assets/img/guitar.png";
-import lamp from "../assets/img/lamp.png";
-import plant from "../assets/img/plant.png";
-import chair from "../assets/img/chair.png";
-import cloudTerms from "../assets/img/cloud-terms.png";
 import ProfessionalBoard from "../components/PrefessionalBoard";
 import ShowRoom from "../components/ShowRoom";
 import Intro from "../components/Intro";
 import Links from "../components/Links";
-
 import Character from "../components/character";
-import desktop from "../assets/img/desktop.png";
 
 import { useSelector } from "react-redux";
 
@@ -24,19 +15,31 @@ export default function Scenario() {
       <Links />
       <img src={guitar} className="guitar" alt="" />
 
-      <Intro category />
-      <div className={`board ${category === "personal" && "open"}`}>
-        <h1>personal</h1>
-      </div>
-      <div className={`board ${category === "professional" && "open"}`}>
-        <ProfessionalBoard />
-      </div>
-      <div className={`board ${category === "academic" && "open"}`}>
-        <h1>academico</h1>
-      </div>
-      <div className={`board ${category === "showroom" && "open"}`}>
-        <ShowRoom />
-      </div>
+      {!category && <Intro />}
+
+      {category === "personal" && (
+        <div className={`board ${category === "personal" && "open"}`}>
+          <h1>personal</h1>
+        </div>
+      )}
+
+      {/* {category === "professional" && (
+        <div className={`board ${category === "professional" && "open"}`}>
+          <ProfessionalBoard />
+        </div>
+      )}
+
+      {category === "academic" && (
+        <div className={`board ${category === "academic" && "open"}`}>
+          <h1>academico</h1>
+        </div>
+      )}
+
+      {category === "showroom" && (
+        <div className={`board ${category === "personal" && "open"}`}>
+          <ShowRoom />
+        </div>
+      )} */}
 
       <Character />
     </div>

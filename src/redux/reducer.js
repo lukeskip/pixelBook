@@ -10,7 +10,7 @@ import {
 import strings from "../utils/strings";
 
 const initValue = {
-  dialog: "",
+  dialog: [],
   prompt: "$",
   consoleOpen: "open",
   category: "",

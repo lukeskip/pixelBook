@@ -21,6 +21,8 @@ export default function ConsoleComponent() {
   };
   return (
     <>
+      {consoleOpen === "open" && <div className="veil"></div>}
+
       <div className={`console ${consoleOpen}`}>
         <Terminal
           prompt={prompt}

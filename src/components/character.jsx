@@ -3,6 +3,7 @@ import characterBody from "../assets/img/character-body.png";
 import characterHead from "../assets/img/character-head-short.png";
 import characterHeadError from "../assets/img/character-head-error.png";
 import characterBodyError from "../assets/img/character-body-error.png";
+import desktop from "../assets/img/desktop.png";
 import characterEyes from "../assets/img/character-eyes.png";
 import antenas from "../assets/img/antenas.png";
 import TypeIt from "typeit-react";
@@ -12,34 +13,22 @@ import { useSelector } from "react-redux";
 export default function Character() {
   const errorMode = useSelector((state) => state.errorMode);
   const dialog = useSelector((state) => state.dialog);
-  const [typeItCloud, setTypeItCloud] = useState(false);
-  const handleType = (instance) => {
-    setTypeItCloud(instance);
-    return instance;
-  };
-  const typeCreate = () => {
-    return (
-      <TypeIt getAfterInit={handleType} options={typeItDefault}>
-        {dialog}
-      </TypeIt>
-    );
+  const [counter, setCounter] = useState(0);
+
+  const getDialog = () => {
+    if (dialog[counter]) {
+      return dialog[counter];
+    } else {
+      return false;
+    }
   };
 
   useEffect(() => {
-    if (typeItCloud) {
-      typeItCloud.type(dialog).flush();
-      typeItCloud.reset().go();
-    }
-
-    console.log(errorMode);
-
-    return () => {
-      dialog;
-    };
+    setCounter(0);
   }, [dialog]);
 
   return !errorMode ? (
-    <div className="character">
+    <div className="character" onClick={() => setCounter(counter + 1)}>
       <img className="body" src={characterBody} alt="" />
       <div className="head">
         {errorMode && <img className="antenas" src={antenas} alt="" />}
@@ -47,10 +36,11 @@ export default function Character() {
         <img src={errorMode ? characterHeadError : characterHead} alt="" />
         <img className="eyes" src={characterEyes} alt="" />
       </div>
-
-      <div className={`speech-cloud ${dialog && "active"}`}>
-        <TypeIt getBeforeInit={handleType} options={typeItDefault}></TypeIt>
-      </div>
+      {getDialog() && (
+        <div className={`speech-cloud ${dialog && "active"}`}>
+          {getDialog()}
+        </div>
+      )}
     </div>
   ) : (
     <div className="character error">

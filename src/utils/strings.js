@@ -24,8 +24,8 @@ const strings = {
       "version 1.0.0",
       "teclea la palabra init y presiona enter",
     ],
-    startInterview:
-      "Ask me anything throught the console at the bottom of the screen",
+    startInterview: "Ask me anything throught the console",
+    error: "Uuups, something went wrong with my AI",
   },
   es: {
     stopRepeated:
@@ -57,5 +57,6 @@ const strings = {
   },
   startInterview:
     "Pregúntame lo que quieras a través de la consola ubicada en la parte baja de la pantalla",
+  error: "Uuups, algo se le chispoteó a mi AI",
 };
 export default strings;
