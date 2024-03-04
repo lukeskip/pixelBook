@@ -6,6 +6,8 @@ import {
   SET_CATEGORY,
   SET_PROMPT,
   SET_ERROR_MODE,
+  SET_MODE,
+  SET_LANGUAGE,
 } from "./actions";
 import strings from "../utils/strings";
 
@@ -15,6 +17,8 @@ const initValue = {
   consoleOpen: "open",
   category: "",
   errorMode: false,
+  mode: "",
+  lang: "en",
   terminalData: [...strings.en.welcome],
 };
 
@@ -72,6 +76,19 @@ const reducer = (state = initValue, action) => {
       return {
         ...state,
         consoleOpen: action.payload,
+      };
+      break;
+
+    case SET_MODE:
+      return {
+        ...state,
+        mode: action.payload,
+      };
+      break;
+    case SET_LANGUAGE:
+      return {
+        ...state,
+        lang: action.payload,
       };
       break;
 

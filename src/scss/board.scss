@@ -1,16 +1,36 @@
 .board {
   background: none;
-  width: 50%;
+  width: 100%;
+  height: 100vh;
   border-radius: 5px;
   transition: left 1s ease-out;
-  padding-left: 100px;
   padding-top: 20px;
   padding-bottom: 100px;
+  position: absolute;
+  background-color: white;
+  top: 0;
+  left: 0;
+  z-index: 8;
   color: white;
-  &.open {
-    left: 5%;
+  animation: appear 1s ease 0s normal forwards;
+  background-position: bottom;
+  &.personal {
+    background-image: url("../assets/img/background-personal.png");
   }
-
+  &.profesional {
+    background-image: url("../assets/img/background.png");
+  }
+  &.disappear {
+    animation: disappear 1s ease 0s normal forwards;
+  }
+  .close {
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+  }
   h1,
   h2,
   h3 {

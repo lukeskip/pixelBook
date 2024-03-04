@@ -1,9 +1,10 @@
 .character {
   position: absolute;
-  bottom: 20%;
+  bottom: 30%;
   right: 15%;
   width: 200px;
   height: 300px;
+  z-index: 10;
   .desktop {
     position: absolute;
     bottom: -40px;

@@ -9,10 +9,12 @@ import antenas from "../assets/img/antenas.png";
 import TypeIt from "typeit-react";
 import typeItDefault from "../configurations/typeit-default.js";
 import { useSelector } from "react-redux";
+import strings from "../utils/strings.js";
 
 export default function Character() {
   const errorMode = useSelector((state) => state.errorMode);
   const dialog = useSelector((state) => state.dialog);
+  const language = useSelector((state) => state.lang);
   const [counter, setCounter] = useState(0);
 
   const getDialog = () => {
@@ -27,7 +29,7 @@ export default function Character() {
     setCounter(0);
   }, [dialog]);
 
-  return !errorMode ? (
+  return (
     <div className="character" onClick={() => setCounter(counter + 1)}>
       <img className="body" src={characterBody} alt="" />
       <div className="head">
@@ -36,23 +38,12 @@ export default function Character() {
         <img src={errorMode ? characterHeadError : characterHead} alt="" />
         <img className="eyes" src={characterEyes} alt="" />
       </div>
+      <div className="instructions">{strings[language].continue}</div>
       {getDialog() && (
         <div className={`speech-cloud ${dialog && "active"}`}>
           {getDialog()}
         </div>
       )}
-    </div>
-  ) : (
-    <div className="character error">
-      <img
-        className="body"
-        src={errorMode ? characterBody : characterBodyError}
-        alt=""
-      />
-      <div className="head">
-        <img src={characterHead} alt="" />
-        <img className="eyes" src={characterEyes} alt="" />
-      </div>
     </div>
   );
 }

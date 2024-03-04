@@ -5,10 +5,19 @@ const CLEAN_TERMINAL = "CLEAN_TERMINAL";
 const SET_CATEGORY = "SET_CATEGORY";
 const SET_PROMPT = "SET_PROMPT";
 const SET_ERROR_MODE = "SET_ERROR_MODE";
+const SET_MODE = "SET_MODE";
+const SET_LANGUAGE = "SET_LANGUAGE";
 
 const setDialog = (payload) => {
   return {
     type: SET_DIALOG,
+    payload: payload,
+  };
+};
+
+const setMode = (payload) => {
+  return {
+    type: SET_MODE,
     payload: payload,
   };
 };
@@ -23,6 +32,13 @@ const setPrompt = (payload) => {
 const setCategory = (payload) => {
   return {
     type: SET_CATEGORY,
+    payload: payload,
+  };
+};
+
+const setLang = (payload) => {
+  return {
+    type: SET_LANGUAGE,
     payload: payload,
   };
 };
@@ -56,12 +72,16 @@ const setErrorMode = (payload) => {
 
 export {
   SET_TERMINAL,
+  SET_MODE,
   CLEAN_TERMINAL,
   SET_CONSOLE,
   SET_DIALOG,
   SET_CATEGORY,
   SET_PROMPT,
   SET_ERROR_MODE,
+  SET_LANGUAGE,
+  setLang,
+  setMode,
   setDialog,
   setPrompt,
   cleanTerminal,
