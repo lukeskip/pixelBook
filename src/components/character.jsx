@@ -8,14 +8,23 @@ import characterEyes from "../assets/img/character-eyes.png";
 import antenas from "../assets/img/antenas.png";
 import TypeIt from "typeit-react";
 import typeItDefault from "../configurations/typeit-default.js";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import strings from "../utils/strings.js";
+import { setBoard } from "../redux/actions.js";
 
 export default function Character() {
   const errorMode = useSelector((state) => state.errorMode);
   const dialog = useSelector((state) => state.dialog);
   const lang = useSelector((state) => state.lang);
+  const board = useSelector((state) => state.board);
+  const category = useSelector((state) => state.category);
+  const dispatch = useDispatch();
   const [counter, setCounter] = useState(0);
+
+  const handleBoardOpen = () => {
+    console.log("board");
+    dispatch(setBoard(true));
+  };
 
   const getDialog = () => {
     if (dialog[counter]) {
@@ -36,7 +45,13 @@ export default function Character() {
         <img src={errorMode ? characterHeadError : characterHead} alt="" />
         <img className="eyes" src={characterEyes} alt="" />
       </div>
-      <div className="sign">{strings[lang].clickToExpand}</div>
+
+      {category && !board && (
+        <div className="sign" onClick={handleBoardOpen}>
+          {strings[lang].clickToExpand}
+        </div>
+      )}
+
       {getDialog() && (
         <div
           className={`speech-cloud ${dialog && "active"}`}

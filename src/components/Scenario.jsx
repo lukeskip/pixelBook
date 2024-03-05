@@ -10,13 +10,14 @@ import { useEffect } from "react";
 
 export default function Scenario() {
   const category = useSelector((state) => state.category);
+  const board = useSelector((state) => state.board);
   const mode = useSelector((state) => state.mode);
   return (
     <div className="scenario">
       <div className={`veil ${mode !== "stopped" && "disappear"}`}></div>
       <Menu />
 
-      {category && <Board category={category} />}
+      {board && <Board category={category} />}
 
       <Character />
     </div>

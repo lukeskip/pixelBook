@@ -21,8 +21,11 @@
   .sign {
     width: 150px;
     height: 80px;
-    background-color: #9b1b1b;
+    background-image: url("../assets/img/sign.png");
     position: absolute;
+    font-family: $main-font;
+    color: black;
+    font-size: 0.8em;
     top: 180px;
     left: 25px;
     display: flex;
@@ -30,7 +33,8 @@
     align-items: center;
     z-index: 9;
     text-align: center;
-    color: white;
+    border: 5px solid #4ba184;
+    font-weight: 700;
     &::after,
     &::before {
       content: "";

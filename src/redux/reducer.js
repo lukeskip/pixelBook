@@ -2,6 +2,7 @@ import {
   SET_TERMINAL,
   CLEAN_TERMINAL,
   SET_DIALOG,
+  SET_BOARD,
   SET_STATUS,
   SET_CATEGORY,
   SET_PROMPT,
@@ -21,6 +22,7 @@ const initValue = {
   mode: "stopped",
   lang: "en",
   bash: undefined,
+  board: false,
   terminalData: [...strings.en.welcome],
 };
 
@@ -35,6 +37,7 @@ const reducer = (state = initValue, action) => {
     case SET_CATEGORY:
       return {
         ...state,
+        board: !action.payload ? false : state.board,
         category: action.payload,
       };
       break;
@@ -97,6 +100,12 @@ const reducer = (state = initValue, action) => {
       return {
         ...state,
         lang: action.payload,
+      };
+      break;
+    case SET_BOARD:
+      return {
+        ...state,
+        board: action.payload,
       };
       break;
 

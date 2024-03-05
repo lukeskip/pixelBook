@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { setCategory } from "../redux/actions.js";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setCategory, setBoard } from "../redux/actions.js";
 import PrefessionalBoard from "./PrefessionalBoard";
 import PersonalBoard from "./PersonalBoard";
 
 export default function Board({ category }) {
-  const [disappear, setDisappear] = React.useState(false);
+  const [disappear, setDisappear] = useState(false);
+  const board = useSelector((state) => state.board);
   const dispatch = useDispatch();
   const handleClose = () => {
     setDisappear(true);

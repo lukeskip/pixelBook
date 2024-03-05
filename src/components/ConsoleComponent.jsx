@@ -16,7 +16,7 @@ export default function ConsoleComponent() {
   const lang = useSelector((state) => state.lang);
   const dispatch = useDispatch();
   const bash = useSelector((state) => state.bash);
-  const category = useSelector((state) => state.category);
+  const board = useSelector((state) => state.board);
 
   const handleInput = (input) => {
     dispatch(setTerminal([input]));
@@ -36,7 +36,7 @@ export default function ConsoleComponent() {
   return (
     <>
       <div className={`console ${consoleOpen} ${mode}`}>
-        {!category && (
+        {!board && (
           <Terminal
             prompt={prompt}
             colorMode={ColorMode.Dark}

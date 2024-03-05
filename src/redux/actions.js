@@ -8,10 +8,18 @@ const SET_ERROR_MODE = "SET_ERROR_MODE";
 const SET_MODE = "SET_MODE";
 const SET_LANGUAGE = "SET_LANGUAGE";
 const SET_BASH = "SET_BASH";
+const SET_BOARD = "SET_BOARD";
 
 const setDialog = (payload) => {
   return {
     type: SET_DIALOG,
+    payload: payload,
+  };
+};
+
+const setBoard = (payload) => {
+  return {
+    type: SET_BOARD,
     payload: payload,
   };
 };
@@ -89,6 +97,8 @@ export {
   SET_ERROR_MODE,
   SET_LANGUAGE,
   SET_BASH,
+  SET_BOARD,
+  setBoard,
   setBash,
   setLang,
   setMode,
