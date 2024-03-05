@@ -14,7 +14,7 @@ import strings from "../utils/strings.js";
 export default function Character() {
   const errorMode = useSelector((state) => state.errorMode);
   const dialog = useSelector((state) => state.dialog);
-  const language = useSelector((state) => state.lang);
+  const lang = useSelector((state) => state.lang);
   const [counter, setCounter] = useState(0);
 
   const getDialog = () => {
@@ -36,6 +36,7 @@ export default function Character() {
         <img src={errorMode ? characterHeadError : characterHead} alt="" />
         <img className="eyes" src={characterEyes} alt="" />
       </div>
+      <div className="sign">{strings[lang].clickToExpand}</div>
       {getDialog() && (
         <div
           className={`speech-cloud ${dialog && "active"}`}
@@ -45,7 +46,7 @@ export default function Character() {
         </div>
       )}
       {dialog[counter + 1] && (
-        <div className="instructions">{strings[language].continue}</div>
+        <div className="instructions">{strings[lang].continue}</div>
       )}
     </div>
   );

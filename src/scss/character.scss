@@ -18,6 +18,21 @@
     z-index: 2;
   }
 
+  .sign {
+    width: 150px;
+    height: 80px;
+    background-color: #9b1b1b;
+    position: absolute;
+    top: 180px;
+    left: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+    text-align: center;
+    color: white;
+  }
+
   .instructions {
     position: absolute;
     top: 150px;

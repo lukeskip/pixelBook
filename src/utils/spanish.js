@@ -29,6 +29,7 @@ const es = {
   firstInit: "First initialize the program running the command 'init'",
   continue: "click para continuar",
   letsTalk: "Hablemos a través de la consola inicia el modo entrevista",
+  clickToExpand: "Click aquí para saber más",
 };
 
 export default es;

@@ -29,6 +29,7 @@ const en = {
   welcomeInterview: "You can ask anything, this app is working with AI",
   continue: "click to continue",
   letsTalk: "Let's talk throuth the console, type interview to start",
+  clickToExpand: "Click here to expand this info",
 };
 
 export default en;
