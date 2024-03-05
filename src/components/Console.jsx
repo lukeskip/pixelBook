@@ -36,6 +36,7 @@ export default function ConsoleComponent() {
   return (
     <>
       <div className={`console ${consoleOpen} ${mode}`}>
+        <Intro />
         {!board && (
           <Terminal
             prompt={prompt}

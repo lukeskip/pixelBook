@@ -1,4 +1,3 @@
-import ProfessionalBoard from "../components/PrefessionalBoard";
 import ShowRoom from "../components/ShowRoom";
 import Intro from "../components/Intro";
 import Menu from "../components/Menu";

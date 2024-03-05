@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCategory, setBoard } from "../redux/actions.js";
-import PrefessionalBoard from "./PrefessionalBoard";
+import ProfessionalBoard from "./ProfessionalBoard";
 import PersonalBoard from "./PersonalBoard";
 
 export default function Board({ category }) {
@@ -35,7 +35,7 @@ export default function Board({ category }) {
         x
       </div>
 
-      {category === "professional" && <PrefessionalBoard />}
+      {category === "professional" && <ProfessionalBoard />}
       {category === "personal" && <PersonalBoard />}
     </div>
   );
