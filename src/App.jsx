@@ -1,12 +1,11 @@
 import "./scss/App.scss";
 import { Routes, Route } from "react-router-dom";
-import Console from "./routes/Console";
-import Interface from "./routes/Interface";
+import Scenario from "./components/Scenario";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Interface />} />
+      <Route path="/" element={<Scenario />} />
     </Routes>
   );
 }

@@ -35,16 +35,18 @@ export default function ConsoleComponent() {
 
   return (
     <>
-      <div className={`console ${consoleOpen} ${mode}`}>
-        <Intro />
+      <div className={`console ${mode}`}>
         {!board && (
-          <Terminal
-            prompt={prompt}
-            colorMode={ColorMode.Dark}
-            onInput={handleInput}
-          >
-            <TerminalLine messages={terminalData}></TerminalLine>
-          </Terminal>
+          <>
+            <Intro />
+            <Terminal
+              prompt={prompt}
+              colorMode={ColorMode.Dark}
+              onInput={handleInput}
+            >
+              <TerminalLine messages={terminalData}></TerminalLine>
+            </Terminal>
+          </>
         )}
       </div>
     </>

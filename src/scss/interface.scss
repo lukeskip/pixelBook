@@ -1,6 +1,10 @@
 .interface {
   overflow: hidden;
-  @import "./intro.scss";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @import "./character.scss";
   @import "./scenario.scss";
   @import "./console.scss";
 }

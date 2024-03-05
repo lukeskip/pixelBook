@@ -6,62 +6,81 @@
   background-position: center;
   overflow-y: scroll;
   box-sizing: border-box;
+
+  @import "./menu.scss";
+  @import "../scss/board.scss";
+
+  .content {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    > div {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @import "./console.scss";
+
+    .guitar {
+      position: absolute;
+      bottom: 40%;
+      right: 10%;
+      z-index: 9;
+    }
+
+    .chair {
+      position: absolute;
+      top: 25%;
+      left: 380px;
+    }
+
+    .window {
+      position: absolute;
+      top: 30px;
+      right: 100px;
+    }
+
+    .door {
+      position: absolute;
+      bottom: 57%;
+      left: 100px;
+    }
+
+    .lamp {
+      position: absolute;
+      bottom: 380px;
+      left: 500px;
+    }
+
+    .plant {
+      position: absolute;
+      bottom: 20%;
+      left: 0px;
+    }
+
+    @import "../scss/character.scss";
+
+    .desktop {
+      position: absolute;
+      bottom: 400px;
+      left: 100px;
+    }
+  }
   .veil {
+    position: absolute;
     background-color: rgb(12, 12, 12);
     width: 100%;
     height: 100vh;
     top: 0;
     left: 0;
+    z-index: 9;
     &.disappear {
       animation: disappear 1s ease 0s normal forwards;
     }
-  }
-
-  @import "../scss/board.scss";
-  @import "../scss/menu.scss";
-
-  .guitar {
-    position: absolute;
-    bottom: 40%;
-    right: 10%;
-    z-index: 9;
-  }
-
-  .chair {
-    position: absolute;
-    top: 25%;
-    left: 380px;
-  }
-
-  .window {
-    position: absolute;
-    top: 30px;
-    right: 100px;
-  }
-
-  .door {
-    position: absolute;
-    bottom: 57%;
-    left: 100px;
-  }
-
-  .lamp {
-    position: absolute;
-    bottom: 380px;
-    left: 500px;
-  }
-
-  .plant {
-    position: absolute;
-    bottom: 20%;
-    left: 0px;
-  }
-
-  @import "../scss/character.scss";
-
-  .desktop {
-    position: absolute;
-    bottom: 400px;
-    left: 100px;
   }
 }

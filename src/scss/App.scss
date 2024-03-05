@@ -38,9 +38,4 @@ h3 {
   font-size: 1.2em;
 }
 
-.container {
-  overflow: hidden;
-  width: 100%;
-  min-height: 100vh;
-  @import "./interface";
-}
+@import "./scenario.scss";

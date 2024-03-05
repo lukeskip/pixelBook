@@ -1,9 +1,11 @@
 .console {
-  position: absolute;
+  position: relative;
   width: 500px;
   height: 300px;
-  bottom: 30%;
-  left: 100px;
+  z-index: 10;
+  margin-top: -100px;
+
+  @import "./intro.scss";
 
   .react-terminal-wrapper {
     padding: 10px;

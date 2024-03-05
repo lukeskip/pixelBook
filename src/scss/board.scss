@@ -17,6 +17,10 @@
   background-image: url("../assets/img/background.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  z-index: 10;
+  .info {
+    max-width: 800px;
+  }
   &.personal {
     background-image: url("../assets/img/background-personal.png");
   }
@@ -25,11 +29,6 @@
   }
   &.disappear {
     animation: disappear 500ms ease 0s normal forwards;
-  }
-
-  .content {
-    max-width: 800px;
-    padding-left: 50px;
   }
   .close {
     position: absolute;

@@ -6,7 +6,7 @@ import Tabs from "./Tabs";
 
 export default function PrefessionalBoard() {
   return (
-    <div className="content">
+    <div className="info">
       <Tabs tabs={["primera", "segunda", "tercera"]}>
         <div>
           Proident quis duis reprehenderit velit ex dolor adipisicing fugiat

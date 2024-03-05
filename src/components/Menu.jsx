@@ -6,11 +6,11 @@ import whatsapp from "../assets/img/icon-whatsapp.png";
 import behance from "../assets/img/icon-behance.png";
 import email from "../assets/img/icon-email.png";
 
-export default function Links() {
+export default function Menu() {
   const lang = useSelector((state) => state.lang);
   const dispatch = useDispatch();
   return (
-    <div className="links">
+    <div className="menu">
       <ul>
         <li>
           <a href="https://github.com/lukeskip" target="_blank">
