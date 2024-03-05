@@ -30,14 +30,17 @@ export default function Character() {
   }, [dialog]);
 
   return (
-    <div className="character" onClick={() => setCounter(counter + 1)}>
+    <div className="character">
       <img className="body" src={characterBody} alt="" />
       <div className="head">
         <img src={errorMode ? characterHeadError : characterHead} alt="" />
         <img className="eyes" src={characterEyes} alt="" />
       </div>
       {getDialog() && (
-        <div className={`speech-cloud ${dialog && "active"}`}>
+        <div
+          className={`speech-cloud ${dialog && "active"}`}
+          onClick={() => setCounter(counter + 1)}
+        >
           {getDialog()}
         </div>
       )}
