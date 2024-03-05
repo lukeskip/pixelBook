@@ -56,8 +56,8 @@
 
   .instructions {
     position: absolute;
-    top: 150px;
-    right: -100px;
+    top: -100px;
+    right: -50px;
     font-family: $secondary-font;
     width: 100px;
     z-index: 9;
@@ -112,6 +112,7 @@
     animation: cloud 3s ease 0s infinite normal forwards;
     opacity: 0;
     z-index: 2;
+    cursor: pointer;
     &::after,
     &:before {
       content: "";
