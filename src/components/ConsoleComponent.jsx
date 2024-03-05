@@ -4,7 +4,7 @@ import typeItDefault from "../configurations/typeit-default.js";
 import Terminal, { ColorMode, TerminalOutput } from "react-terminal-ui";
 import Bash from "../commands/Bash.js";
 import { useSelector, useDispatch } from "react-redux";
-import { setDialog, setTerminal } from "../redux/actions.js";
+import { setDialog, setTerminal, setBash } from "../redux/actions.js";
 import Intro from "./Intro";
 
 export default function ConsoleComponent() {
@@ -15,22 +15,36 @@ export default function ConsoleComponent() {
   const mode = useSelector((state) => state.mode);
   const lang = useSelector((state) => state.lang);
   const dispatch = useDispatch();
-  const [bash, setBash] = useState(new Bash(dispatch, lang));
+  const bash = useSelector((state) => state.bash);
+  const category = useSelector((state) => state.category);
 
   const handleInput = (input) => {
     dispatch(setTerminal([input]));
     bash.run(input);
   };
+
+  useEffect(() => {
+    if (bash) {
+      bash.lang(lang);
+    }
+  }, [bash, lang]);
+
+  useEffect(() => {
+    dispatch(setBash(new Bash(dispatch, lang)));
+  }, []);
+
   return (
     <>
       <div className={`console ${consoleOpen} ${mode}`}>
-        <Terminal
-          prompt={prompt}
-          colorMode={ColorMode.Dark}
-          onInput={handleInput}
-        >
-          <TerminalLine messages={terminalData}></TerminalLine>
-        </Terminal>
+        {!category && (
+          <Terminal
+            prompt={prompt}
+            colorMode={ColorMode.Dark}
+            onInput={handleInput}
+          >
+            <TerminalLine messages={terminalData}></TerminalLine>
+          </Terminal>
+        )}
       </div>
     </>
   );

@@ -7,7 +7,7 @@ export default function question(string) {
     this._consoleMessage(strings[this.language].wait);
     (async () => {
       try {
-        const request = await questionRequest(string);
+        const request = await questionRequest(string, this.language);
         this._consoleMessage(strings[this.language].ready);
         this.dispatch(setCategory(request.data.category));
         return this._showDialog(request.data.answer);

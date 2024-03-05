@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setCategory } from "../redux/actions.js";
-import guitar from "../assets/img/guitar.png";
+import PrefessionalBoard from "./PrefessionalBoard";
+import PersonalBoard from "./PersonalBoard";
 
 export default function Board({ category }) {
   const [disappear, setDisappear] = React.useState(false);
@@ -10,15 +11,31 @@ export default function Board({ category }) {
     setDisappear(true);
     setTimeout(() => {
       dispatch(setCategory(""));
-    }, 2000);
+    }, 1000);
   };
+
+  useEffect(() => {
+    const handleEnter = (event) => {
+      if (event.key === "Enter" || event.key === "Escape") {
+        handleClose();
+      }
+    };
+
+    document.addEventListener("keydown", handleEnter);
+
+    return () => {
+      document.removeEventListener("keydown", handleEnter);
+    };
+  }, []);
+
   return (
     <div className={`board ${category} ${disappear && "disappear"}`}>
-      <div className="close" onClick={handleClose}></div>
-      {category === "personal" && (
-        <img src={guitar} className="guitar" alt="" />
-      )}
-      <h1>{category}</h1>
+      <div className="close" onClick={handleClose}>
+        x
+      </div>
+
+      {category === "professional" && <PrefessionalBoard />}
+      {category === "personal" && <PersonalBoard />}
     </div>
   );
 }

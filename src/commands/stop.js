@@ -1,3 +1,5 @@
+import strings from "../utils/strings";
+import { setMode, setTerminal } from "../redux/actions";
 // It fakes the application stop, and hide the scenario
 export default function stop(args) {
   if (this.questioning === true) {
@@ -15,7 +17,7 @@ export default function stop(args) {
     (async () => {
       await this._delay([strings[this.language].stopped]);
     })();
-    this.dispatch(setConsole("open"));
+    this.dispatch(setMode("stopped"));
   } else {
     this.dispatch(setTerminal([strings[this.language].stopRepeated]));
   }

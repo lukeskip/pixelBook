@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Scenario from "../components/Scenario";
 import ConsoleComponent from "../components/ConsoleComponent";
 

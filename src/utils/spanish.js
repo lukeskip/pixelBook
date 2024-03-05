@@ -24,10 +24,11 @@ const es = {
     " ",
     "teclea la palabra init y presiona enter",
   ],
-  startInterview:
-    "Pregúntame lo que quieras a través de la consola ubicada en la parte baja de la pantalla",
+  startInterview: "Pregúntame lo que quieras a través de la consola",
   error: "Uuups, algo se le chispoteó a mi AI",
   firstInit: "First initialize the program running the command 'init'",
+  continue: "click para continuar",
+  letsTalk: "Hablemos a través de la consola inicia el modo entrevista",
 };
 
 export default es;

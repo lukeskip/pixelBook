@@ -3,7 +3,6 @@ export default function run(input, dispatch) {
   let args = input.toString().trim().split(" ");
   const cmd = args.shift();
   args = args.join(" ");
-
   if (this[cmd]) {
     this[cmd](args);
   } else {

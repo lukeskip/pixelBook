@@ -27,6 +27,8 @@ const en = {
   error: "Uuups, something went wrong with my AI",
   firstInit: "First initialize the program running the command 'init'",
   welcomeInterview: "You can ask anything, this app is working with AI",
+  continue: "click to continue",
+  letsTalk: "Let's talk throuth the console, type interview to start",
 };
 
 export default en;

@@ -5,7 +5,7 @@ import biotherm from "../assets/img/logos/biotherm.png";
 
 export default function PrefessionalBoard() {
   return (
-    <div>
+    <div className="content">
       <h2>Mi experiencia laboral:</h2>
       <p>
         <span className="year">2014</span> a la{" "}
@@ -37,23 +37,6 @@ export default function PrefessionalBoard() {
         <img className="logo" src={loreal} alt="" />
         <img className="logo" src={biotherm} alt="" />
       </div>
-      <p>
-        Reprehenderit anim ad in aliquip aute ipsum. Minim cillum duis velit
-        anim. Eiusmod irure qui commodo minim nulla incididunt est id culpa qui
-        officia fugiat enim in. Pariatur occaecat eiusmod laboris culpa deserunt
-        irure ad nulla aliquip. Cillum ipsum aliqua dolor qui proident aliqua
-        dolor duis eu eiusmod dolore excepteur. Nostrud laborum magna deserunt
-        magna aliquip sunt officia ut ex laborum. In ut ad esse occaecat
-        occaecat.
-      </p>
-      <p>
-        Sunt eu voluptate ea nostrud veniam culpa consequat incididunt. Ea
-        fugiat culpa mollit do reprehenderit in cupidatat proident labore est
-        dolore ea Lorem. Occaecat sit deserunt magna et. Sunt veniam amet aliqua
-        amet. Ad voluptate dolore id tempor fugiat ipsum magna. Laboris sunt
-        esse mollit minim consequat laboris laboris laborum labore irure sit
-        exercitation tempor.
-      </p>
     </div>
   );
 }

@@ -19,7 +19,7 @@ export default function Character() {
 
   const getDialog = () => {
     if (dialog[counter]) {
-      return dialog[counter];
+      return dialog[counter] + (dialog[counter + 1] ? "..." : "");
     } else {
       return false;
     }
@@ -33,16 +33,16 @@ export default function Character() {
     <div className="character" onClick={() => setCounter(counter + 1)}>
       <img className="body" src={characterBody} alt="" />
       <div className="head">
-        {errorMode && <img className="antenas" src={antenas} alt="" />}
-
         <img src={errorMode ? characterHeadError : characterHead} alt="" />
         <img className="eyes" src={characterEyes} alt="" />
       </div>
-      <div className="instructions">{strings[language].continue}</div>
       {getDialog() && (
         <div className={`speech-cloud ${dialog && "active"}`}>
           {getDialog()}
         </div>
+      )}
+      {dialog[counter + 1] && (
+        <div className="instructions">{strings[language].continue}</div>
       )}
     </div>
   );

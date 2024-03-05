@@ -12,16 +12,24 @@
   left: 0;
   z-index: 8;
   color: white;
-  animation: appear 1s ease 0s normal forwards;
+  animation: appear 300ms ease 0s normal forwards;
   background-position: bottom;
+  background-image: url("../assets/img/background.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   &.personal {
     background-image: url("../assets/img/background-personal.png");
   }
-  &.profesional {
-    background-image: url("../assets/img/background.png");
+  &.professional {
+    background-image: url("../assets/img/background-professional.png");
   }
   &.disappear {
-    animation: disappear 1s ease 0s normal forwards;
+    animation: disappear 500ms ease 0s normal forwards;
+  }
+
+  .content {
+    max-width: 800px;
+    padding-left: 50px;
   }
   .close {
     position: absolute;
@@ -29,7 +37,13 @@
     top: 50px;
     width: 50px;
     height: 50px;
-    background-color: red;
+    border-radius: 100%;
+    border: 5px solid black;
+    line-height: 100%;
+    font-size: 2.3em;
+    color: black;
+    text-align: center;
+    cursor: pointer;
   }
   h1,
   h2,
@@ -61,4 +75,6 @@
       }
     }
   }
+
+  @import "./PersonalBoard.scss";
 }

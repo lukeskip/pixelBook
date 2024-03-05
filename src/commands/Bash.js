@@ -1,6 +1,5 @@
 import {
   setDialog,
-  setConsole,
   setTerminal,
   cleanTerminal,
   setCategory,
@@ -35,18 +34,18 @@ class Bash {
   }
 }
 
+Bash.prototype.init = init;
+Bash.prototype.interview = interview;
+Bash.prototype.lang = lang;
+Bash.prototype.stop = stop;
+Bash.prototype.help = help;
 Bash.prototype._showDialog = showDialog;
 Bash.prototype._error = showError;
 Bash.prototype.run = run;
 Bash.prototype._getCommands = getCommands;
-Bash.prototype.stop = stop;
 Bash.prototype._consoleMessage = consoleMessage;
 Bash.prototype._question = question;
-Bash.prototype.interview = interview;
-Bash.prototype.init = init;
 Bash.prototype._delay = delay;
-Bash.prototype.lang = lang;
-Bash.prototype.help = help;
 Bash.prototype.download = download;
 
 export default Bash;

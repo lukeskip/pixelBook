@@ -2,23 +2,25 @@ import {
   SET_TERMINAL,
   CLEAN_TERMINAL,
   SET_DIALOG,
-  SET_CONSOLE,
+  SET_STATUS,
   SET_CATEGORY,
   SET_PROMPT,
   SET_ERROR_MODE,
   SET_MODE,
   SET_LANGUAGE,
+  SET_BASH,
 } from "./actions";
 import strings from "../utils/strings";
 
 const initValue = {
   dialog: [],
   prompt: "$",
-  consoleOpen: "open",
+  status: "running",
   category: "",
   errorMode: false,
-  mode: "",
+  mode: "stopped",
   lang: "en",
+  bash: undefined,
   terminalData: [...strings.en.welcome],
 };
 
@@ -34,6 +36,12 @@ const reducer = (state = initValue, action) => {
       return {
         ...state,
         category: action.payload,
+      };
+      break;
+    case SET_BASH:
+      return {
+        ...state,
+        bash: action.payload,
       };
       break;
     case SET_ERROR_MODE:
@@ -72,10 +80,10 @@ const reducer = (state = initValue, action) => {
       };
       break;
 
-    case SET_CONSOLE:
+    case SET_STATUS:
       return {
         ...state,
-        consoleOpen: action.payload,
+        status: action.payload,
       };
       break;
 
