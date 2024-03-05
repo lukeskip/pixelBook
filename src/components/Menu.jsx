@@ -1,6 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setLang } from "../redux/actions.js";
+import github from "../assets/img/icon-github.png";
+import whatsapp from "../assets/img/icon-whatsapp.png";
+import behance from "../assets/img/icon-behance.png";
+import email from "../assets/img/icon-email.png";
 
 export default function Links() {
   const lang = useSelector((state) => state.lang);
@@ -9,16 +13,24 @@ export default function Links() {
     <div className="links">
       <ul>
         <li>
-          <a href="#">LinkedIn</a>
+          <a href="https://github.com/lukeskip" target="_blank">
+            <img className="icon" src={github} alt="" />
+          </a>
         </li>
         <li>
-          <a href="#">Behance</a>
+          <a href="https://www.behance.net/chekogarciagtz" target="_blank">
+            <img className="icon" src={behance} alt="" />
+          </a>
         </li>
         <li>
-          <a href="#">Email</a>
+          <a href="mailto:contacto@chekogarcia.com.mx" target="_blank">
+            <img className="icon" src={email} alt="" />
+          </a>
         </li>
         <li>
-          <a href="#">WhatsApp</a>
+          <a href="#">
+            <img className="icon" src={whatsapp} alt="" />
+          </a>
         </li>
         {lang !== "es" && (
           <li>

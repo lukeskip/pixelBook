@@ -8,11 +8,15 @@
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    gap: 10px;
+    gap: 20px;
   }
 
   a {
     color: white;
     text-decoration: none;
+  }
+
+  .icon {
+    width: 40px;
   }
 }

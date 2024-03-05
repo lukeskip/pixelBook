@@ -30,6 +30,7 @@ const es = {
   continue: "click para continuar",
   letsTalk: "Hablemos a través de la consola inicia el modo entrevista",
   clickToExpand: "Click aquí para saber más",
+  noData: "Tienes que escribir una pregunta",
 };
 
 export default es;
