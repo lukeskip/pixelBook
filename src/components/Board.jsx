@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCategory, setBoard } from "../redux/actions.js";
 import ProfessionalBoard from "./ProfessionalBoard";
 import PersonalBoard from "./PersonalBoard";
+import PortfolioBoard from "./PortfolioBoard";
 
 export default function Board({ category }) {
   const [disappear, setDisappear] = useState(false);
@@ -37,6 +38,7 @@ export default function Board({ category }) {
 
       {category === "professional" && <ProfessionalBoard />}
       {category === "personal" && <PersonalBoard />}
+      {category === "portfolio" && <PortfolioBoard />}
     </div>
   );
 }
