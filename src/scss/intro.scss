@@ -5,7 +5,7 @@
   }
 
   h1 {
-    color: black;
+    color: $console-text-color;
     line-height: 100%;
     margin: 0;
     font-size: 1.5em;
@@ -16,5 +16,18 @@
     color: white;
     line-height: 100%;
     margin: 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .intro {
+    h1 {
+      font-size: 1em;
+      text-align: center;
+    }
+    h2 {
+      font-size: 1em;
+      text-align: center;
+    }
   }
 }
