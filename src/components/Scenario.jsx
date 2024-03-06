@@ -16,11 +16,10 @@ export default function Scenario() {
     <div className="scenario">
       <Menu />
       <div className={`veil ${mode !== "stopped" && "disappear"}`}></div>
-      {board && <Board category={category} />}
+      {/* {board && <Board category={category} />} */}
+      <Board category="professional" />
       <div className="content">
-        <div>
-          <Console />
-        </div>
+        <div>{/* <Console /> */}</div>
         <div>
           <Character />
         </div>

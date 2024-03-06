@@ -17,7 +17,7 @@ export default function Tabs({ children, tabs }) {
           return (
             <div
               key={index}
-              className="tab"
+              className={`tab ${visible === `tab-${index}` && "active"}`}
               onClick={() => handleTabClick(index)}
             >
               {tab}
