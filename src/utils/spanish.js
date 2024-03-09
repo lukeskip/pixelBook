@@ -31,6 +31,7 @@ const es = {
   letsTalk: "Hablemos a través de la consola inicia el modo entrevista",
   clickToExpand: "Click aquí para saber más",
   noData: "Tienes que escribir una pregunta",
+  projects:"Algunos de mis proyectos"
 };
 
 export default es;

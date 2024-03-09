@@ -31,6 +31,7 @@ const en = {
   letsTalk: "Let's talk throuth the console, type interview to start",
   clickToExpand: "Click here to expand this info",
   noData: "No data provided",
+  projects:"Some of my projects"
 };
 
 export default en;

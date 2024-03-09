@@ -20,14 +20,13 @@ export default function Slides({ slides }) {
         {slides[currentSlide] && (
           <div className="slide">
             <div className="image">
-              <img src={slides[currentSlide].image} alt="" />
+            {slides[currentSlide].image &&  <img src={slides[currentSlide].image} alt="" />
+            }
             </div>
             <div className="info">
-              <h3>{slides[currentSlide].title}</h3>
-              <p>{slides[currentSlide].description}</p>
               <div className="tags">
-                {slides[currentSlide].skills.map((skill) => {
-                  <span>{skill}</span>;
+                {slides[currentSlide].tags.map((tag) => {
+                  return <div className="tag">{tag}</div>;
                 })}
               </div>
             </div>

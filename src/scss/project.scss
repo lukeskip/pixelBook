@@ -1,0 +1,49 @@
+.project {
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  height: 100vh;
+  position: relative;
+  .next,
+  .previous {
+    font-size: 4em;
+    position: absolute;
+    color: white;
+    cursor: pointer;
+  }
+  .next {
+    right: 10px;
+  }
+  .previous {
+    left: 10px;
+  }
+  .container {
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    > div {
+      flex-grow: 1;
+      max-width: 600px;
+    }
+    .description {
+      h1 {
+        color: $console-text-color;
+      }
+      color: white;
+      padding: 20px;
+      @import "./tabs.scss";
+    }
+    .image {
+      img {
+        max-width: 100%;
+        width: 500px;
+      }
+    }
+  }
+}

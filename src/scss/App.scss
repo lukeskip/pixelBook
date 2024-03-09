@@ -6,16 +6,11 @@
 body,
 html {
   margin: 0;
-  overflow: hidden;
   font-family: $secondary-font;
   font-size: 20px;
 }
 * {
   box-sizing: border-box;
-}
-
-#root {
-  overflow: hidden;
 }
 
 html {
@@ -45,4 +40,11 @@ strong {
   color: $console-text-color;
 }
 
+section {
+  height: 100vh;
+}
+
 @import "./scenario.scss";
+@import "./project.scss";
+@import "./menu.scss";
+@import "./tags.scss";
