@@ -46,12 +46,6 @@ export default function Character() {
         <img className="eyes" src={characterEyes} alt="" />
       </div>
 
-      {category && !board && (
-        <div className="sign" onClick={handleBoardOpen}>
-          {strings[lang].clickToExpand}
-        </div>
-      )}
-
       {getDialog() && (
         <div
           className={`speech-cloud ${dialog && "active"}`}
