@@ -12,7 +12,7 @@ const en = {
   stopping: "Stopping...",
   stopped: "Application stopped, come back soon!!!",
   initRepeated: "Application already running, type 'stop' ",
-  wait: "Generando respuesta...",
+  wait: "AI generating answer...",
   languageAvailable:
     "The only available languages are 'es' for Spanish and 'en' for English",
   currentLanguage: "The current language is English",
@@ -31,7 +31,8 @@ const en = {
   letsTalk: "Let's talk throuth the console, type interview to start",
   clickToExpand: "Click here to expand this info",
   noData: "No data provided",
-  projects:"Some of my projects"
+  projects:"Some of my projects",
+  downloading:"Downloading..."
 };
 
 export default en;

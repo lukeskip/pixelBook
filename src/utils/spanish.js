@@ -12,7 +12,7 @@ const es = {
   stopping: "Deteniendo...",
   stopped: "Aplicación detenida, regresa pronto!!!",
   initRepeated: "La aplicación ya está corriendo, teclea 'stop' para detener",
-  wait: "espera...",
+  wait: "IA generando respuesta...",
   languageAvailable:
     "Los únicos idiomas disponibles son  'es' para Español y 'en' para Inglés",
   currentLanguage: "El idioma actual es español",
@@ -31,7 +31,8 @@ const es = {
   letsTalk: "Hablemos a través de la consola inicia el modo entrevista",
   clickToExpand: "Click aquí para saber más",
   noData: "Tienes que escribir una pregunta",
-  projects:"Algunos de mis proyectos"
+  projects:"Algunos de mis proyectos",
+  downloading:"Descargando..."
 };
 
 export default es;
