@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import projects from '../utils/projects'
 import { useParams,useNavigate } from 'react-router-dom';
 import Menu from '../components/Menu'
+import Button from '../components/Button'
 
 export default function Project() {
     let { id } = useParams();
@@ -18,8 +19,13 @@ export default function Project() {
     const checkProject = (nextId)=>{
         return  projects.find((item) => item.id === nextId);
     }
+
+    const handleGoToLink = (link)=>{
+        window.open(link,"_blank")
+    } 
    
     useEffect(()=>{
+        
         const currentProject = projects.find((item)=> item.id === Number(id));
         setProject(currentProject);
     },[id]);
@@ -38,6 +44,9 @@ export default function Project() {
                     <div className="description">
                         <h1>{project.title}</h1>
                         <p>{project.description}</p>
+                        {project.gitHub && <Button label="GitHub" icon={{collection:"fa-brands",name:"github"}} callback={() => handleGoToLink(project.gitHub)} />}
+                        {project.tryIt && <Button label="Try it" icon={{collection:"fa-solid",name:"eye"}} callback={() => handleGoToLink(project.tryIt)} />}
+                        
                         <div className="tags">
 
                         {project.tags && project.tags.map((tag,index)=>{

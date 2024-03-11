@@ -8,7 +8,7 @@ const projects = [
     screenCapture:"/src/assets/img/capture-knobs-1.jpg",
     backgroundImage: "/src/assets/img/back-knobs.jpg",
     tags: ["PHP", "Laravel", "Javascript", "Adobe XD"],
-    gitHub:"",
+    gitHub:"https://github.com/lukeskip/knobs",
     tryIt:"https://knobs.reydecibel.com.mx/"
   },
   {
@@ -32,7 +32,7 @@ const projects = [
     backgroundImage: "/src/assets/img/back-playlists.jpg",
     screenCapture:"/src/assets/img/capture-playlist-1.jpg",
     tags: ["PHP", "Laravel", "Javascript", "JQuery"],
-    gitHub:"",
+    gitHub:"https://github.com/lukeskip/playlists",
     tryIt:"https://playlist.reydecibel.com.mx/"
   },
   {
