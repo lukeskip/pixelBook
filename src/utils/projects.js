@@ -18,9 +18,9 @@ const projects = [
       "Esta plataforma busca convertirse en una especie de AirBnB pero de salas de ensayo, que son rentadas en por toda la Ciudad de México por músicos independientes. la idea es adaptar una idea de negocio conocida a un mercado en el que no se había ocupado: construí el diseño utilizandoAdobe XD y desarrollé el sistemacon PHP (Laravel) y por supuesto una buena dosis de JavaScript",
     image: "/src/assets/img/portfolio-ensayo-pro.png",
     screenCapture:"/src/assets/img/capture-ensayo-pro-1.jpg",
-    backgroundImage: "/src/assets/img/back-playlists.jpg",
+    backgroundImage: "/src/assets/img/back-ensayo-pro.jpg",
     tags: ["PHP", "Laravel", "Javascript", "JQuery"],
-    gitHub:"",
+    gitHub:"https://github.com/lukeskip/ensayoPro",
     tryIt:"https://ensayopro.chekogarcia.com.mx/"
   },
   {
@@ -43,7 +43,7 @@ const projects = [
     backgroundImage: "/src/assets/img/back-torticaja.jpg",
     screenCapture:"/src/assets/img/capture-torticaja-1.jpg",
     tags: ["PHP", "Laravel", "Javascript", "JQuery"],
-    gitHub:"",
+    gitHub:"https://github.com/lukeskip/torticajaApp",
     tryIt:""
   },
   

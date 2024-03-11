@@ -5,6 +5,7 @@ import github from "../assets/img/icon-github.png";
 import whatsapp from "../assets/img/icon-whatsapp.png";
 import behance from "../assets/img/icon-behance.png";
 import email from "../assets/img/icon-email.png";
+import portfolio from "../assets/img/icon-portfolio.png";
 
 export default function Menu() {
   const lang = useSelector((state) => state.lang);
@@ -12,6 +13,11 @@ export default function Menu() {
   return (
     <div className="menu">
       <ul>
+        <li>
+          <a href="/project/1" target="_blank">
+            <img className="icon" src={portfolio} alt="" />
+          </a>
+        </li>
         <li>
           <a href="https://github.com/lukeskip" target="_blank">
             <img className="icon" src={github} alt="" />
