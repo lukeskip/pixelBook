@@ -34,7 +34,7 @@ export default function Menu() {
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="https://wa.me/525535555637">
             <img className="icon" src={whatsapp} alt="" />
           </a>
         </li>
