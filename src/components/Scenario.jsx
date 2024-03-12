@@ -1,6 +1,6 @@
-import Menu from "../components/Menu";
-import Character from "../components/Character";
-import Console from "../components/Console";
+import Menu from "./Menu";
+import Character from "./Character";
+import Console from "./Console";
 import { useSelector } from "react-redux";
 import guitar from '../assets/img/guitar.png'
 import plant from '../assets/img/plant.png'
