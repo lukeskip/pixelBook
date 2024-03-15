@@ -44,8 +44,8 @@ export default function Project() {
                     <div className="description">
                         <h1>{project.title}</h1>
                         <p>{project.description}</p>
-                        {project.gitHub && <Button label="GitHub" icon={{collection:"fa-brands",name:"github"}} callback={() => handleGoToLink(project.gitHub)} />}
-                        {project.tryIt && <Button label="Try it" icon={{collection:"fa-solid",name:"eye"}} callback={() => handleGoToLink(project.tryIt)} />}
+                        {/* {project.gitHub && <Button label="GitHub" icon={{collection:"fa-brands",name:"github"}} callback={() => handleGoToLink(project.gitHub)} />}
+                        {project.tryIt && <Button label="Try it" icon={{collection:"fa-solid",name:"eye"}} callback={() => handleGoToLink(project.tryIt)} />} */}
                         
                         <div className="tags">
 
