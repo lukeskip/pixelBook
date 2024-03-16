@@ -9,7 +9,7 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     env:
-      ENVIRONMENT: production
+      ENVIRONMENT: Production-hola
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
