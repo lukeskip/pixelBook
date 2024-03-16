@@ -7,8 +7,8 @@ const projects = [
       en:"I created this platform to connect independent musicians with professional producers so these ones can advise and review their songs technically, in exchange of a payment. The creative idea is mine and for the UI I used Adobe XD and Laravel for the system.",
     },
     image: "/img/portfolio-knobs.png",
-    screenCapture:"/src/assets/img/capture-knobs-1.jpg",
-    backgroundImage: "/src/assets/img/back-knobs.jpg",
+    screenCapture:"/img/capture-knobs-1.jpg",
+    backgroundImage: "/img/back-knobs.jpg",
     tags: ["PHP", "Laravel", "Javascript", "Adobe XD"],
     gitHub:"https://github.com/lukeskip/knobs",
     tryIt:"https://knobs.reydecibel.com.mx/"
@@ -21,8 +21,8 @@ const projects = [
       en:"This is a platform AirBnB alike but that covers the rent of rehearsal spaces that independen musicians use. I used Adobe XD  to design the UI and Laravel (PHP) for the system.",
     },   
     image: "/img/portfolio-ensayo-pro.png",
-    screenCapture:"/src/assets/img/capture-ensayo-pro-1.jpg",
-    backgroundImage: "/src/assets/img/back-ensayo-pro.jpg",
+    screenCapture:"img/capture-ensayo-pro-1.jpg",
+    backgroundImage: "/img/back-ensayo-pro.jpg",
     tags: ["PHP", "Laravel", "Javascript", "JQuery"],
     gitHub:"https://github.com/lukeskip/ensayoPro",
     tryIt:"https://ensayopro.chekogarcia.com.mx/"
@@ -35,8 +35,8 @@ const projects = [
       en:"Esta sencilla plataforma, es la más exitosa de los assets de un proyecto más grande llamado Rey Decibel. En ella los seguidores de Rey decibel, quienes son músicos independientes, pueden registrarse en las playlist que esta comunidad tiene en Spotify gratuitamente o en su versión premium con un pago. La plataforma cuenta está creada con una interfaz step-by-step generada con JavaScript y JQuery que corre en un soporte de PHP (Laravel), cuenta con auteticación por vía Spotify y obtiene información de la API de Spotify"
     },
     image: "/img/portfolio-playlist.png",
-    backgroundImage: "/src/assets/img/back-playlists.jpg",
-    screenCapture:"/src/assets/img/capture-playlist-1.jpg",
+    backgroundImage: "/img/back-playlists.jpg",
+    screenCapture:"/img/capture-playlist-1.jpg",
     tags: ["PHP", "Laravel", "Javascript", "JQuery"],
     gitHub:"https://github.com/lukeskip/playlists",
     tryIt:"https://playlist.reydecibel.com.mx/"
@@ -49,8 +49,8 @@ const projects = [
       en:"This is a Point Of Sale platform but designed specifically for tortillería shop, a very common bussiness in Mexico. It helps of course to register the sales of the shop, but more importantly to monitor the raw material used to make the tortillas, which is basically what makes this particular management difficult. "
     },
     image: "/img/portfolio-playlist.png",
-    backgroundImage: "/src/assets/img/back-torticaja.jpg",
-    screenCapture:"/src/assets/img/capture-torticaja-1.jpg",
+    backgroundImage: "/img/back-torticaja.jpg",
+    screenCapture:"/img/capture-torticaja-1.jpg",
     tags: ["PHP", "Laravel", "Javascript", "JQuery"],
     gitHub:"https://github.com/lukeskip/torticajaApp",
     tryIt:""
