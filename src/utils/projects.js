@@ -5,7 +5,8 @@ const projects = [
     description:{
       es:"Creé esta plataforma para conectar músicos independientes con productores y músicos profesionales para que estos últimos los aconsejen para hacer crecer su proyecto a cambio de un incentivo económico. La idea creativa es mía y desarrollé el diseño utilizando Adobe XD y desarrollé el sistema con PHP (Laravel)",
       en:"I created this platform to connect independent musicians with professional producers so these ones can advise and review their songs technically, in exchange of a payment. The creative idea is mine and for the UI I used Adobe XD and Laravel for the system.",
-    image: "/src/assets/img/portfolio-knobs.png"},
+    },
+    image: "/src/assets/img/portfolio-knobs.png",
     screenCapture:"/src/assets/img/capture-knobs-1.jpg",
     backgroundImage: "/src/assets/img/back-knobs.jpg",
     tags: ["PHP", "Laravel", "Javascript", "Adobe XD"],

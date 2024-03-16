@@ -3,11 +3,14 @@ import projects from '../utils/projects'
 import { useParams,useNavigate } from 'react-router-dom';
 import Menu from '../components/Menu'
 import Button from '../components/Button'
+import { useSelector } from 'react-redux';
+
 
 export default function Project() {
     let { id } = useParams();
     const [project,setProject] = useState({});
     const navigate = useNavigate();
+    const lang = useSelector(state=>state.lang);
     const handleNavigate = (diff)=>{
         const nextId = Number(id) + diff;
         const nextProject = checkProject(nextId);
@@ -25,7 +28,6 @@ export default function Project() {
     } 
    
     useEffect(()=>{
-        
         const currentProject = projects.find((item)=> item.id === Number(id));
         setProject(currentProject);
     },[id]);
@@ -43,9 +45,9 @@ export default function Project() {
                     <Menu/>
                     <div className="description">
                         <h1>{project.title}</h1>
-                        <p>{project.description}</p>
-                        {/* {project.gitHub && <Button label="GitHub" icon={{collection:"fa-brands",name:"github"}} callback={() => handleGoToLink(project.gitHub)} />}
-                        {project.tryIt && <Button label="Try it" icon={{collection:"fa-solid",name:"eye"}} callback={() => handleGoToLink(project.tryIt)} />} */}
+                        <p>{project.description && project.description["es"]}</p>
+                        {project.gitHub && <Button label="GitHub" icon={{collection:"fa-brands",name:"github"}} callback={() => handleGoToLink(project.gitHub)} />}
+                        {project.tryIt && <Button label="Try it" icon={{collection:"fa-solid",name:"eye"}} callback={() => handleGoToLink(project.tryIt)} />}
                         
                         <div className="tags">
 
