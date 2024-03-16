@@ -1,3 +1,4 @@
+import packageJson from '../../package.json'
 const es = {
   stopRepeated:
     "La aplicación ya está detenida, escribe 'init' y presiona 'enter' para correr la aplicación",
@@ -18,7 +19,7 @@ const es = {
   currentLanguage: "El idioma actual es español",
   welcome: [
     "Bienvenido a mi website",
-    "version 1.0.0",
+    `Version ${packageJson.version}`,
     "Soy un desarrolador creativo: si eres programador te gustará navegar mi página;",
     "si no, aprenderás un poco del mundo de la programación",
     " ",
