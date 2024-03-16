@@ -6,6 +6,7 @@ import Bash from "../commands/Bash.js";
 import { useSelector, useDispatch } from "react-redux";
 import { setDialog, setTerminal, setBash } from "../redux/actions.js";
 import Intro from "./Intro";
+const HOST = import.meta.env.VITE_URL_HOST; 
 
 export default function ConsoleComponent() {
   const dialog = useSelector((state) => state.dialog);
@@ -17,6 +18,7 @@ export default function ConsoleComponent() {
   const dispatch = useDispatch();
   const bash = useSelector((state) => state.bash);
   const board = useSelector((state) => state.board);
+  
 
   const handleInput = (input) => {
     dispatch(setTerminal([input]));
@@ -24,6 +26,7 @@ export default function ConsoleComponent() {
   };
 
   useEffect(() => {
+    console.log(HOST); 
     if (bash) {
       bash.lang(lang);
     }
