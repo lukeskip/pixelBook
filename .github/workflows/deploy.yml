@@ -5,11 +5,9 @@ on:
 name: 🚀 Deploy website on push
 
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  deployment:
     runs-on: ubuntu-latest
-    env:
-      ENVIRONMENT: Production-hola
+    environment: Production-hola
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
