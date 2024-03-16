@@ -30,3 +30,4 @@ jobs:
           password: ${{ secrets.GIT_CPANEL_REACT_PWD }}
           protocol: ${{ secrets.GIT_CPANEL_REACT_PROTOCOL }}
           local-dir: ./dist/
+          VITE_URL_HOST: ${{ env.VITE_URL_HOST }}
