@@ -21,7 +21,8 @@ jobs:
         run: |
           npm install
           npm run build
-
+        env:
+          VITE_URL_HOST: ${{ secrets.VITE_URL_HOST }}
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
