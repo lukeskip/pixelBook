@@ -1,3 +1,4 @@
+import packageJson from '../../package.json'
 const en = {
   stopRepeated:
     "Aplication is already stopped, type 'init' and press 'enter' to run the aplication",
@@ -18,7 +19,7 @@ const en = {
   currentLanguage: "The current language is English",
   welcome: [
     "Welcome to my website",
-    "version 1.0.0",
+    `Version ${packageJson.version}`,
     "I'm a fullstack developer if you're a dev too, you'll like this site.",
     " ",
     "type 'init' and press enter",

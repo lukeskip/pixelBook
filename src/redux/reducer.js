@@ -20,7 +20,7 @@ const initValue = {
   category: "",
   errorMode: false,
   mode: "stopped",
-  lang: "en",
+  lang: "es",
   bash: undefined,
   board: false,
   terminalData: [...strings.en.welcome],
